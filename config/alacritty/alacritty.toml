@@ -1,0 +1,8 @@
+[window]
+padding = { x = 4, y = 4}
+decorations = "None"
+
+[font]
+normal = {family = "FiraCode Nerd Font", style = "Regular"}
+size = 10.0
+builtin_box_drawing = true
