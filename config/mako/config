@@ -1,0 +1,23 @@
+# Colors
+
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#b4befe
+progress-color=over #313244
+border-radius=8
+
+[urgency=high]
+border-color=#fab387
+
+# timeout settings
+default-timeout=2000
+ignore-timeout=0
+
+[urgency=low]
+default-timeout=2000
+
+[urgency=normal]
+default-timeout=3000
+
+[urgency=high]
+default-timeout=5000
