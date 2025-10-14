@@ -8,12 +8,7 @@
     "margin": 4,
     "spacing": 5,
     "include": ["./modules.jsonc"],
-    "modules-left": [
-      "custom/padd",
-      "niri/workspaces",
-      "custom/separator",
-      "group/right-group",
-    ],
+    "modules-left": ["niri/workspaces", "group/right-group"],
     "modules-center": ["clock"],
     "modules-right": [
       "tray",

@@ -90,14 +90,7 @@
       "transition-duration": 400,
       "transition-left-to-right": true,
     },
-    "modules": [
-      "custom/cogicon",
-      "cpu",
-      "memory",
-      "custom/gpu1",
-      "custom/gpu2",
-      "disk",
-    ],
+    "modules": ["custom/cogicon", "cpu", "memory", "disk"],
   },
 
   "idle_inhibitor": {
