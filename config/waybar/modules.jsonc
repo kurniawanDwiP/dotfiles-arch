@@ -1,0 +1,169 @@
+{
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "browser": "󰈹",
+      "chat": "",
+      "code": "",
+      "create": "",
+      "music": "",
+    },
+  },
+
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M}",
+  },
+
+  "battery": {
+    "full-at": 96,
+    "states": {
+      "good": 78,
+      "ok": 77,
+      "warning": 20,
+      "critical": 10,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-time": "{H}h {M}m",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip": true,
+    "tooltip-format": "Time: {time}\nPower: {power}W",
+  },
+
+  "network": {
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip": true,
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "headset": "",
+      "default": ["", "", ""],
+    },
+    "tooltip": false,
+  },
+
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 15,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": false,
+        "tooltip-icon-size": 15,
+      },
+      {
+        "type": "audio-out",
+        "tooltip": false,
+        "tooltip-icon-size": 15,
+      },
+      {
+        "type": "audio-in",
+        "tooltip": false,
+        "tooltip-icon-size": 15,
+      },
+    ],
+  },
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 8,
+  },
+  "custom/cogicon": {
+    "format": "󰒔 ",
+  },
+
+  "group/right-group": {
+    "orientation": "inherit",
+    "drawer": {
+      "icon-spacing": 4,
+      "icon-size": 15,
+      "format": "󰒻",
+      "click-to-reveal": true,
+      "transition-duration": 400,
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "custom/cogicon",
+      "cpu",
+      "memory",
+      "custom/gpu1",
+      "custom/gpu2",
+      "disk",
+    ],
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+    },
+    "tooltip": false,
+  },
+  "custom/padd": {
+    "return-type": "text",
+    "interval": "once",
+    "format": " ",
+    "tooltip": false,
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": {
+      "default": ["󰃞", "󰃟", "󰃠"],
+    },
+    "tooltip": true,
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "CPU:{usage}%",
+    "format-icons": {
+      "default": ["󰍛"],
+    },
+  },
+  "memory": {
+    "interval": 5,
+    "format": "RAM:{used}GB",
+    "format-used": "{used} GB",
+    "format-total": "{total} GB",
+    "format-icons": {
+      "default": ["󰘚"],
+    },
+    "tooltip": true,
+    "tooltip-format": "Used: {used}GB\nAvailable: {avail}GB\nTotal: {total}GB\nPercentage: {percentage}%",
+  },
+  "disk": {
+    "path": "/",
+    "interval": 5,
+    "format": "DISK:{used}",
+    "format-icons": {
+      "default": ["󰋊"],
+    },
+    "tooltip": true,
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+      "default": "󰓅 ",
+      "performance": "󰓅 ",
+      "balanced": " ",
+      "power-saver": "󰌪 ",
+    },
+  },
+
+  "custom/separator": {
+    "return-type": "text",
+    "interval": "once",
+    "format": "·",
+    "tooltip": false,
+  },
+}

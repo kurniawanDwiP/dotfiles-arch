@@ -1,0 +1,29 @@
+[
+  {
+    "id": "bar-0",
+    "name": "bar-niri",
+    "layer": "top",
+    "mode": "dock",
+    "height": 28,
+    "margin": 4,
+    "spacing": 5,
+    "include": ["./modules.jsonc"],
+    "modules-left": [
+      "custom/padd",
+      "niri/workspaces",
+      "custom/separator",
+      "group/right-group",
+    ],
+    "modules-center": ["clock"],
+    "modules-right": [
+      "tray",
+      "privacy",
+      "idle_inhibitor",
+      "backlight",
+      "pulseaudio",
+      "power-profiles-daemon", // via tuned and tuned-ppd
+      "battery",
+      "custom/padd",
+    ],
+  },
+]
