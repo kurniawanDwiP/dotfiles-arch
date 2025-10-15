@@ -56,7 +56,8 @@ layout {
     struts {
     }
     tab-indicator {
-    place-within-column
+    // place-within-column
+    gap -12
     width 4
     length total-proportion=0.1
     gaps-between-tabs 4

@@ -1,24 +1,30 @@
 [
   {
     "id": "bar-0",
+    "reload_style_on_change": true,
     "name": "bar-niri",
     "layer": "top",
     "mode": "dock",
-    "height": 28,
+    "height": 24,
     "margin": 4,
     "spacing": 5,
     "include": ["./modules.jsonc"],
-    "modules-left": ["niri/workspaces", "group/right-group"],
+    "modules-left": ["niri/workspaces", "custom/separator", "niri/window"],
     "modules-center": ["clock"],
+    // "modules-right": [
+    //   "tray",
+    //   "privacy",
+    //   "idle_inhibitor",
+    //   "backlight",
+    //   "pulseaudio",
+    //   "power-profiles-daemon", // via tuned and tuned-ppd
+    //   "battery",
+    //   "custom/padd",
+    // ],
     "modules-right": [
-      "tray",
-      "privacy",
-      "idle_inhibitor",
-      "backlight",
-      "pulseaudio",
-      "power-profiles-daemon", // via tuned and tuned-ppd
-      "battery",
-      "custom/padd",
+      "group/right-group",
+      "custom/separator",
+      "power-profiles-daemon",
     ],
   },
 ]

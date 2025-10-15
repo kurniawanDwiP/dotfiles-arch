@@ -11,7 +11,8 @@
   },
 
   "clock": {
-    "format": "{:%Y-%m-%d %H:%M}",
+    "format": "{:%H:%M}",
+    //"format": "{:%Y-%m-%d %H:%M}",
   },
 
   "battery": {
@@ -82,15 +83,21 @@
 
   "group/right-group": {
     "orientation": "inherit",
-    "drawer": {
-      "icon-spacing": 4,
-      "icon-size": 15,
-      "format": "󰒻",
-      "click-to-reveal": true,
-      "transition-duration": 400,
-      "transition-left-to-right": true,
-    },
-    "modules": ["custom/cogicon", "cpu", "memory", "disk"],
+    // "drawer": {
+    //   "icon-spacing": 4,
+    //   "icon-size": 15,
+    //   "format": "󰒻",
+    //   "click-to-reveal": true,
+    //   "transition-duration": 400,
+    //   "transition-left-to-right": true,
+    // },
+    "modules": [
+      "cpu",
+      "custom/separator",
+      "memory",
+      "custom/separator",
+      "disk",
+    ],
   },
 
   "idle_inhibitor": {
@@ -117,14 +124,14 @@
 
   "cpu": {
     "interval": 5,
-    "format": "CPU:{usage}%",
+    "format": "{icon} CPU:{usage}%",
     "format-icons": {
       "default": ["󰍛"],
     },
   },
   "memory": {
     "interval": 5,
-    "format": "RAM:{used}GB",
+    "format": "{icon} RAM:{used}GB",
     "format-used": "{used} GB",
     "format-total": "{total} GB",
     "format-icons": {
@@ -136,7 +143,7 @@
   "disk": {
     "path": "/",
     "interval": 5,
-    "format": "DISK:{used}",
+    "format": "󰋊 DISK:{used}",
     "format-icons": {
       "default": ["󰋊"],
     },
@@ -156,7 +163,13 @@
   "custom/separator": {
     "return-type": "text",
     "interval": "once",
-    "format": "·",
+    "format": "|",
     "tooltip": false,
+  },
+
+  "niri/window": {
+    "icon": true,
+    "icon-size": 16,
+    "format": "{app_id}",
   },
 }
