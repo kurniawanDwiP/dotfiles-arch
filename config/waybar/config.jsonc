@@ -25,6 +25,8 @@
       "group/right-group",
       "custom/separator",
       "power-profiles-daemon",
+      "custom/separator",
+      "custom/power",
     ],
   },
 ]
