@@ -121,14 +121,14 @@ overview {
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+B hotkey-overlay-title="Run an Application:firefox" { spawn "firefox"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "alacritty --title yazi -e yazi"; }
+    Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "kitty --title yazi -e yazi"; }
     Mod+D hotkey-overlay-title="Run an Application: discord" { spawn "discord"; }
-    Mod+N hotkey-overlay-title="Run an Application: nvim" { spawn-sh "alacritty --title nvim -e nvim"; }
-    Mod+M repeat=false hotkey-overlay-title="Run an Application: wiremix" { spawn-sh "alacritty --title wiremix -e wiremix"; }
-    Mod+T repeat=false hotkey-overlay-title="Run an Application: btop" { spawn-sh "alacritty --title btop -e btop"; }
+    Mod+N hotkey-overlay-title="Run an Application: nvim" { spawn-sh "kitty --title nvim -e nvim"; }
+    Mod+M repeat=false hotkey-overlay-title="Run an Application: wiremix" { spawn-sh "kitty --title wiremix -e wiremix"; }
+    Mod+T repeat=false hotkey-overlay-title="Run an Application: btop" { spawn-sh "kitty --title btop -e btop"; }
 
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
