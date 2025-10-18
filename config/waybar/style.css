@@ -2,7 +2,7 @@
 
 * {
   font-size: 15px;
-  font-family: Adwaita Mono;
+  font-family: JetBrainsMono Nerd Font;
   font-weight: 600;
   min-height: 0;
   padding-top: 0px;
@@ -102,7 +102,6 @@ window#waybar {
 #custom-updates,
 #idle_inhibitor,
 #network,
-#power-profiles-daemon,
 #privacy,
 #pulseaudio,
 #tray {
@@ -113,7 +112,7 @@ window#waybar {
 
 #clock {
   color: @middle_color;
-  padding: 0 12;
+  padding: 0 16;
 }
 
 #custom-notifications,
@@ -172,4 +171,32 @@ window#waybar {
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+#custom-quit {
+  font-size: 16px;
+  color: @highlight_color;
+  margin: 0 4px;
+  padding: 0px;
+}
+
+#custom-lock {
+  font-size: 16px;
+  color: @caution_color;
+  margin: 0 4px;
+  padding: 0px;
+}
+
+#custom-power {
+  font-size: 16px;
+  color: @urgent_color;
+  margin: 0 4px;
+  padding: 0px;
+}
+
+#custom-reboot {
+  font-size: 16px;
+  color: @accent_color;
+  margin: 0 4px;
+  padding: 0px;
 }

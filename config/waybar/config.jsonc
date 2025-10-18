@@ -11,22 +11,12 @@
     "include": ["./modules.jsonc"],
     "modules-left": ["niri/workspaces", "custom/separator", "niri/window"],
     "modules-center": ["clock"],
-    // "modules-right": [
-    //   "tray",
-    //   "privacy",
-    //   "idle_inhibitor",
-    //   "backlight",
-    //   "pulseaudio",
-    //   "power-profiles-daemon", // via tuned and tuned-ppd
-    //   "battery",
-    //   "custom/padd",
-    // ],
     "modules-right": [
       "group/right-group",
       "custom/separator",
       "power-profiles-daemon",
       "custom/separator",
-      "custom/power",
+      "group/group-power",
     ],
   },
 ]

@@ -40,12 +40,12 @@ layout {
         inactive-color "#505050"
     }
 
-    border {
-        width 2
-        urgent-color "#9b0000"
-        active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
-        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-    }
+    // border {
+    //     width 2
+    //     urgent-color "#9b0000"
+    //     active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+    //     inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    // }
     shadow {
         on
         softness 30
@@ -67,6 +67,7 @@ layout {
     background-color "transparent"
 }
 spawn-at-startup "waybar"
+spawn-at-startup "~/virtual-mic.sh"
 hotkey-overlay {
   skip-at-startup
 }
@@ -87,8 +88,25 @@ window-rule {
     block-out-from "screen-capture"
 }
 window-rule {
-    geometry-corner-radius 4 
+    geometry-corner-radius 8
     clip-to-geometry true
+    opacity 0.98
+}
+
+window-rule {
+  match is-focused=false
+  opacity 0.85
+}
+
+window-rule {
+  match app-id="firefox" title=r#"(?i).*YouTube.*"#
+  opacity 1.0
+}
+
+window-rule {
+  match app-id="firefox" title=r#"(?i).*whatsapp.*"#
+  match app-id="discord"
+  block-out-from "screen-capture"
 }
 
 window-rule {
@@ -96,12 +114,12 @@ window-rule {
   default-column-width {fixed 700;}
   default-window-height {fixed 700;}
   open-floating true
-  geometry-corner-radius 0
+  geometry-corner-radius 8
 }
 
 window-rule {
   match title="yazi"
-  default-column-width {proportion 0.5;}
+  default-column-width {proportion 0.66667;}
 }
 
 window-rule {

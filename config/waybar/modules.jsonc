@@ -14,13 +14,6 @@
     "format": "{:%H:%M}",
     "format-alt": "{:%Y-%m-%d}",
     "tooltip": false,
-    // "calendar": {
-    //   "mode": "month",
-    //   "format": {
-    //     "today": "<b><u>{}</u></b>",
-    //   },
-    // },
-    //"format": "{:%Y-%m-%d %H:%M}",
   },
 
   "network": {
@@ -30,32 +23,22 @@
     "tooltip": true,
   },
 
-  // "pulseaudio": {
-  //   "format": "{icon} {volume}%",
-  //   "format-muted": "",
-  //   "format-icons": {
-  //     "headphones": "",
-  //     "headset": "",
-  //     "default": ["", "", ""],
-  //   },
-  //   "tooltip": false,
-  // },
-
   "custom/cogicon": {
-    "format": "󰒔 ",
+    "format": " 󰒔",
   },
 
   "group/right-group": {
     "orientation": "inherit",
-    // "drawer": {
-    //   "icon-spacing": 4,
-    //   "icon-size": 15,
-    //   "format": "󰒻",
-    //   "click-to-reveal": true,
-    //   "transition-duration": 400,
-    //   "transition-left-to-right": true,
-    // },
+    "drawer": {
+      "icon-spacing": 4,
+      "icon-size": 15,
+      "format": "󰒻",
+      "transition-duration": 400,
+      "transition-left-to-right": true,
+    },
     "modules": [
+      "custom/cogicon",
+      "custom/separator",
       "cpu",
       "custom/separator",
       "memory",
@@ -70,6 +53,7 @@
     "format-icons": {
       "default": ["󰍛"],
     },
+    "on-click": "kitty --title btop -e btop",
   },
   "memory": {
     "interval": 5,
@@ -81,6 +65,7 @@
     },
     "tooltip": true,
     "tooltip-format": "Used: {used}GB\nAvailable: {avail}GB\nTotal: {total}GB\nPercentage: {percentage}%",
+    "on-click": "kitty --title btop -e btop",
   },
   "disk": {
     "path": "/",
@@ -90,15 +75,16 @@
       "default": ["󰋊"],
     },
     "tooltip": true,
+    "on-click": "kitty --title btop -e btop",
   },
   "power-profiles-daemon": {
     "format": "{icon}",
     "tooltip": false,
     "format-icons": {
-      "default": "󰓅 ",
-      "performance": "󰓅 ",
-      "balanced": " ",
-      "power-saver": "󰌪 ",
+      "default": "performance ⚡",
+      "performance": "performance ⚡",
+      "balanced": "balanced  ",
+      "power-saver": "power-save  ",
     },
   },
 
@@ -115,16 +101,40 @@
     "format": "{app_id}",
   },
 
-  "custom/power": {
-    "format": "⏻ ",
-    "tooltip": false,
-    "menu": "on-click",
-    "menu-file": "~/.config/waybar/power_menu.xml",
-    "menu-actions": {
-      "shutdown": "shutdown now",
-      "reboot": "reboot now",
-      "suspend": "systemctl suspend",
-      "hibernate": "systemctl hibernate",
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+      "icon-spacing": 6,
+      "icon-size": 15,
+      "transition-duration": 200,
+      "transition-left-to-right": false,
+      "children-class": "not-power",
     },
+    "modules": [
+      "custom/power", // First element is the "group leader" and won't ever be hidden
+      "custom/quit",
+      "custom/lock",
+      "custom/reboot",
+    ],
+  },
+  "custom/quit": {
+    "format": "󰗼 ",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit",
+  },
+  "custom/lock": {
+    "format": "󰍁 ",
+    "tooltip": false,
+    "on-click": "swaylock",
+  },
+  "custom/reboot": {
+    "format": "󰜉 ",
+    "tooltip": false,
+    "on-click": "reboot",
+  },
+  "custom/power": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "shutdown now",
   },
 }
