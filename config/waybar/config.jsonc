@@ -9,7 +9,13 @@
     "margin": 4,
     "spacing": 5,
     "include": ["./modules.jsonc"],
-    "modules-left": ["niri/workspaces", "custom/separator", "niri/window"],
+    "modules-left": [
+      "niri/workspaces",
+      "custom/separator",
+      "niri/window",
+      "custom/separator",
+      "group/music",
+    ],
     "modules-center": ["clock"],
     "modules-right": [
       "group/right-group",

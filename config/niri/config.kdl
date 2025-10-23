@@ -1,3 +1,4 @@
+prefer-no-csd
 input {
     focus-follows-mouse
     keyboard {
@@ -16,7 +17,7 @@ input {
 }
 output "eDP-1" {
     mode "1920x1080@144"
-    scale 1
+    scale 2
     transform "normal"
     position x=1280 y=0
 }
@@ -24,7 +25,7 @@ cursor {
   hide-when-typing
 }
 layout {
-    gaps 6
+    gaps 8
     always-center-single-column
     center-focused-column "never"
     preset-column-widths {
@@ -72,8 +73,11 @@ hotkey-overlay {
   skip-at-startup
 }
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
 animations {
+  slowdown 1.5
 }
+
 window-rule {
    match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
@@ -90,15 +94,22 @@ window-rule {
 window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
-    opacity 0.95
+    opacity 0.9
+    // focus-ring {
+    //   on
+    //   width 2
+    //   active-color "#3C467B"
+    // }
+    draw-border-with-background false
 }
 
 window-rule {
   match is-focused=false
-  opacity 0.85
+  opacity 0.8
 }
 
 window-rule {
+  match app-id="discord"
   match app-id="firefox" title=r#"(?i).*YouTube.*"#
   opacity 1.0
 }
@@ -119,6 +130,7 @@ window-rule {
 
 window-rule {
   match title="yazi"
+  match app-id="discord"
   default-column-width {proportion 0.66667;}
 }
 
@@ -135,12 +147,13 @@ overview {
     workspace-shadow {
         off
     }
+    zoom 0.5
 }
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Run an Application:firefox" { spawn "firefox"; }
+    Mod+B hotkey-overlay-title="Run an Application: firefox" { spawn "firefox"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "kitty --title yazi -e yazi"; }
     Mod+D hotkey-overlay-title="Run an Application: discord" { spawn "discord"; }

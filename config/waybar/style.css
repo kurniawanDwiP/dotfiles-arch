@@ -17,19 +17,19 @@ window#waybar {
 
 .modules-left {
   background-color: @bg_color;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 0 4px;
 }
 
 .modules-center {
   background-color: @bg_color;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 0 4px;
 }
 
 .modules-right {
   background-color: @bg_color;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 0 4px;
 }
 
@@ -199,4 +199,16 @@ window#waybar {
   color: @accent_color;
   margin: 0 4px;
   padding: 0px;
+}
+
+#custom-music {
+  color: @caution_color;
+}
+
+#custom-musicplayer {
+  color: @caution_color;
+}
+
+#window {
+  color: @last_right_color;
 }

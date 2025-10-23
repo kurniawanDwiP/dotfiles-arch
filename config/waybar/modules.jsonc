@@ -99,6 +99,8 @@
     "icon": true,
     "icon-size": 16,
     "format": "{app_id}",
+    "separate-outputs": true,
+    "expand": true,
   },
 
   "group/group-power": {
@@ -136,5 +138,33 @@
     "format": " ",
     "tooltip": false,
     "on-click": "shutdown now",
+  },
+
+  "custom/music": {
+    "format": " ",
+    "tooltip": false,
+  },
+
+  "custom/musicplayer": {
+    "format": "{}",
+    "escape": false,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ title }}'",
+    "on-click": "playerctl play-pause",
+    "on-right-click": "playerctl next",
+    "max-length": 40,
+  },
+
+  "group/music": {
+    "orientation": "inherit",
+    "drawer": {
+      "icon-spacing": 4,
+      "icon-size": 15,
+      "format": "󰒻",
+      "transition-duration": 400,
+      "transition-left-to-right": true,
+    },
+    "modules": ["custom/music", "custom/musicplayer"],
   },
 }
