@@ -10,9 +10,13 @@
 }
 
 window#waybar {
-  background: transparent;
+  background: @bg_color;
   color: @fg_color;
   border-radius: 20px;
+}
+
+#window {
+  padding-right: 4px;
 }
 
 .modules-left {
@@ -25,12 +29,18 @@ window#waybar {
   background-color: @bg_color;
   border-radius: 4px;
   padding: 0 4px;
+  /* border: 1px solid white */
 }
 
 .modules-right {
   background-color: @bg_color;
   border-radius: 4px;
   padding: 0 4px;
+  /* border: 1px solid white */
+}
+
+#workspaces {
+  padding-left: 4px;
 }
 
 #workspaces button {
@@ -39,6 +49,8 @@ window#waybar {
   margin: 2px;
   padding: 0px;
   border-radius: 4px;
+  min-width: 24px;
+  min-height: 24px;
 }
 
 #workspaces button:hover {
@@ -63,16 +75,6 @@ window#waybar {
   padding: 0px 4px;
 }
 
-#custom-gpu1 {
-  color: @first_right_color;
-  padding: 0px 4px;
-}
-
-#custom-gpu2 {
-  color: @middle_right_color;
-  padding: 0px 4px;
-}
-
 #memory {
   color: @middle_color;
   padding: 0px 4px;
@@ -85,8 +87,9 @@ window#waybar {
 
 #custom-cogicon {
   color: @last_right_color;
-  padding: 0px 4px;
   font-size: 20px;
+  padding-right: 4px;
+  padding-left: 4px;
 }
 #scratchpad {
   background: @highlight_color;
@@ -206,9 +209,12 @@ window#waybar {
 }
 
 #custom-musicplayer {
-  color: @caution_color;
+  color: @fg_color;
 }
 
 #window {
   color: @last_right_color;
+}
+
+#mediacontrol {
 }

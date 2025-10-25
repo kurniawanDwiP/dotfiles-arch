@@ -6,15 +6,14 @@
     "layer": "top",
     "mode": "dock",
     "height": 24,
-    "margin": 4,
     "spacing": 5,
     "include": ["./modules.jsonc"],
     "modules-left": [
       "niri/workspaces",
       "custom/separator",
-      "niri/window",
-      "custom/separator",
       "group/music",
+      "custom/separator",
+      "niri/window",
     ],
     "modules-center": ["clock"],
     "modules-right": [

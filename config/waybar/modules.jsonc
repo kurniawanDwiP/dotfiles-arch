@@ -1,13 +1,6 @@
 {
   "niri/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "browser": "󰈹",
-      "chat": "",
-      "code": "",
-      "create": "",
-      "music": "",
-    },
+    "format": "{value}",
   },
 
   "clock": {
@@ -24,7 +17,8 @@
   },
 
   "custom/cogicon": {
-    "format": " 󰒔",
+    "format": "󰒔",
+    "tooltip": false,
   },
 
   "group/right-group": {
@@ -100,7 +94,6 @@
     "icon-size": 16,
     "format": "{app_id}",
     "separate-outputs": true,
-    "expand": true,
   },
 
   "group/group-power": {
@@ -145,6 +138,29 @@
     "tooltip": false,
   },
 
+  // "custom/playpause": {
+  //   "format": " ⏯ ",
+  //   "tooltip": false,
+  //   "on-click": "playerctl play-pause",
+  // },
+  //
+  // "custom/next": {
+  //   "format": " ⏭ ",
+  //   "tooltip": false,
+  //   "on-click": "playerctl next",
+  // },
+  //
+  // "custom/previous": {
+  //   "format": " ⏮ ",
+  //   "tooltip": false,
+  //   "on-click": "playerctl previous",
+  // },
+  //
+  // "group/mediacontrol": {
+  //   "orientation": "inherit",
+  //   "modules": ["custom/previous", "custom/playpause", "custom/next"],
+  // },
+  //
   "custom/musicplayer": {
     "format": "{}",
     "escape": false,
@@ -152,7 +168,7 @@
     "tooltip": false,
     "exec": "playerctl metadata --format='{{ title }}'",
     "on-click": "playerctl play-pause",
-    "on-right-click": "playerctl next",
+    "on-click-right": "playerctl next",
     "max-length": 40,
   },
 
@@ -160,11 +176,18 @@
     "orientation": "inherit",
     "drawer": {
       "icon-spacing": 4,
-      "icon-size": 15,
+      "icon-size": 20,
       "format": "󰒻",
       "transition-duration": 400,
       "transition-left-to-right": true,
     },
     "modules": ["custom/music", "custom/musicplayer"],
+  },
+
+  "custom/arrowRight": {
+    "format": "",
+  },
+  "custom/arrowLeft": {
+    "format": "",
   },
 }
