@@ -25,15 +25,15 @@ cursor {
   hide-when-typing
 }
 layout {
-    gaps 4
-    always-center-single-column
+    gaps 8
+    // always-center-single-column
     center-focused-column "never"
     preset-column-widths {
-        proportion 0.33333
+        proportion 0.3
         proportion 0.5
-        proportion 0.66667
+        proportion 0.7
     }
-    default-column-width { proportion 0.33333; }
+    default-column-width { proportion 0.3; }
     focus-ring {
       off
         width 4
@@ -75,11 +75,11 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-  slowdown 1.5
+  // slowdown 1.5
 }
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
 }
 /-window-rule {
@@ -88,7 +88,7 @@ window-rule {
     block-out-from "screen-capture"
 }
 window-rule {
-    geometry-corner-radius 4
+    geometry-corner-radius 8
     clip-to-geometry true
     opacity 0.9
     // focus-ring {
@@ -105,14 +105,15 @@ window-rule {
 }
 
 window-rule {
-  match app-id="firefox" title=r#"(?i).*YouTube.*"#
-  match app-id="firefox" title="^Picture-in-Picture$"
+  match app-id="zen" title=r#"(?i).*YouTube.*"#
+  match app-id="zen" title="^Picture-in-Picture$"
   opacity 1.0
 }
 
 window-rule {
-  match app-id="firefox" title=r#"(?i).*whatsapp.*"#
+  match app-id="zen" title=r#"(?i).*whatsapp.*"#
   match app-id="discord"
+  match app-id="vesktop"
   block-out-from "screen-capture"
 }
 
@@ -127,7 +128,7 @@ window-rule {
 window-rule {
   match title="yazi"
   match app-id="discord"
-  default-column-width {proportion 0.66667;}
+  default-column-width {proportion 0.7;}
 }
 
 window-rule {
@@ -139,6 +140,11 @@ layer-rule {
     match namespace="^wallpaper$"
     // place-within-backdrop true
 }
+
+layer-rule {
+  match namespace="^notifications$"
+  block-out-from "screencast"
+}
 overview {
     workspace-shadow {
         off
@@ -149,7 +155,7 @@ overview {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Run an Application: firefox" { spawn "firefox"; }
+    Mod+B hotkey-overlay-title="Run an Application: zen" { spawn "zen"; }
     Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn "fuzzel"; }
     Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "kitty --title yazi -e yazi"; }
     Mod+D hotkey-overlay-title="Run an Application: discord" { spawn "discord"; }
