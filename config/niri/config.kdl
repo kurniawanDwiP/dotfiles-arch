@@ -166,7 +166,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+B hotkey-overlay-title="Run an Application: zen" { spawn "zen-browser"; }
     // Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn "fuzzel"; }
-    Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn-sh "walker --width 200"; }
+    Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn-sh "walker"; }
     Mod+ALT+Space hotkey-overlay-title="Run an Menu" { spawn-sh "~/dotfiles/config/niri/walker-menu"; }
     Mod+Escape { spawn-sh "~/dotfiles/config/niri/walker-menu system"; }
     Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "kitty --title yazi -e yazi"; }
