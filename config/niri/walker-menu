@@ -1,0 +1,150 @@
+#!/bin/bash
+
+# === Helper: tampilkan menu dengan Walker ===
+menu() {
+  local prompt="$1"
+  local options="$2"
+  echo -e "$options" | walker --dmenu -p "$prompt…" --width 300 --minheight 1 --maxheight 600
+}
+
+# === Helper: buka terminal dengan judul "store" ===
+open_store() {
+  local mode="$1" # install / remove
+  local repo="$2" # arch / aur
+
+  kitty --title "store" -e bash -c "
+    set -e
+
+    # Tentukan perintah awal dan aksi berdasarkan mode & repo
+    case \"$mode-$repo\" in
+      install-arch)
+        list_cmd='pacman -Slq'
+        preview_cmd='pacman -Si {1}'
+        action_cmd='sudo pacman -S'
+        ;;
+      install-aur)
+        list_cmd='yay -Slq'
+        preview_cmd='yay -Si {1}'
+        action_cmd='yay -S'
+        ;;
+      remove-arch)
+        list_cmd='pacman -Qq'
+        preview_cmd='pacman -Qi {1}'
+        action_cmd='sudo pacman -Rns'
+        ;;
+      remove-aur)
+        list_cmd='yay -Qm'
+        preview_cmd='yay -Qi {1}'
+        action_cmd='yay -Rns'
+        ;;
+    esac
+
+    # Jalankan fzf untuk memilih paket
+    selection=\$(eval \"\$list_cmd\" | fzf --multi --preview \"\$preview_cmd\" --preview-window=bottom:30%)
+    if [ -z \"\$selection\" ]; then
+      # ESC ditekan / tidak ada pilihan → langsung keluar
+      exit 0
+    fi
+
+    # Jalankan aksi install/remove
+    echo \"\$selection\" | xargs -ro \$action_cmd
+
+    echo
+    echo -e '\033[1;32m✅ Done!\033[0m Press any key to close...'
+    read -n 1 -s -r
+  "
+}
+# === Apps ===
+apps_menu() {
+  walker
+}
+
+# === Install ===
+install_menu() {
+  choice=$(menu "Install" "󰣇 Archpkgs\n󰣇 AUR")
+  if [ -z "$choice" ]; then # Jika dibatalkan/ESC
+    main_menu
+    return
+  fi
+  case "$choice" in
+  *Archpkgs*) open_store install arch ;;
+  *AUR*) open_store install aur ;;
+  esac
+}
+
+# === Remove ===
+remove_menu() {
+  choice=$(menu "Remove" "󰣇 Archpkgs\n󰣇 AUR")
+  if [ -z "$choice" ]; then # Jika dibatalkan/ESC
+    main_menu
+    return
+  fi
+  case "$choice" in
+  *Archpkgs*) open_store remove arch ;;
+  *AUR*) open_store remove aur ;;
+  esac
+}
+
+# === Clipboard ===
+clipboard_menu() {
+  walker -m clipboard --width 300
+}
+
+# === Web Search ===
+web_search_menu() {
+  query=$(walker --dmenu -p "Web Search…" --width 400)
+  if [[ -n "$query" ]]; then
+    zen-browser "https://www.google.com/search?q=${query// /+}"
+  fi
+}
+
+# === System ===
+system_menu() {
+  choice=$(menu "System" "󰐥 Poweroff\n󰜉 Reboot\n Lock")
+  if [ -z "$choice" ]; then # Jika dibatalkan/ESC
+    main_menu
+    return
+  fi
+  case "$choice" in
+  *Poweroff*) systemctl poweroff ;;
+  *Reboot*) systemctl reboot ;;
+  *Lock*) swaylock ;;
+  esac
+}
+
+# === Main Menu ===
+main_menu() {
+  choice=$(menu " Search" "󰀻  Apps\n󰉉  Install\n󰭌  Remove\n  Clipboard\n  Web Search\n  System")
+  case "$choice" in
+  *Apps*) apps_menu ;;
+  *Install*) install_menu ;;
+  *Remove*) remove_menu ;;
+  *Clipboard*) clipboard_menu ;;
+  *Web*) web_search_menu ;;
+  *System*) system_menu ;;
+  esac
+}
+
+case "$1" in
+system)
+  system_menu
+  ;;
+install)
+  install_menu
+  ;;
+remove)
+  remove_menu
+  ;;
+apps)
+  apps_menu
+  ;;
+clipboard)
+  clipboard_menu
+  ;;
+web)
+  web_search_menu
+  ;;
+*)
+  main_menu
+  ;;
+esac

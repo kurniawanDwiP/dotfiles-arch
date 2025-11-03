@@ -68,6 +68,8 @@ layout {
     background-color "transparent"
 }
 spawn-at-startup "waybar"
+spawn-at-startup "vicinae server"
+spawn-at-startup "elephant"
 spawn-at-startup "~/virtual-mic.sh"
 hotkey-overlay {
   skip-at-startup
@@ -136,6 +138,13 @@ window-rule {
   default-column-width {proportion 0.5;}
 }
 
+window-rule{
+  match app-id="kitty" title="store"
+  open-floating true
+  default-column-width {fixed 800;}
+  default-window-height {fixed 800;}
+}
+
 layer-rule {
     match namespace="^wallpaper$"
     // place-within-backdrop true
@@ -155,8 +164,11 @@ overview {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Run an Application: zen" { spawn "zen"; }
-    Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn "fuzzel"; }
+    Mod+B hotkey-overlay-title="Run an Application: zen" { spawn "zen-browser"; }
+    // Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn "fuzzel"; }
+    Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn-sh "walker"; }
+    Mod+ALT+Space hotkey-overlay-title="Run an Menu" { spawn-sh "~/dotfiles/config/niri/walker-menu"; }
+    Mod+Escape { spawn-sh "~/dotfiles/config/niri/walker-menu system"; }
     Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "kitty --title yazi -e yazi"; }
     Mod+D hotkey-overlay-title="Run an Application: discord" { spawn "discord"; }
     Mod+N hotkey-overlay-title="Run an Application: nvim" { spawn-sh "kitty --title nvim -e nvim"; }
@@ -280,7 +292,7 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    // Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P { power-off-monitors; }
