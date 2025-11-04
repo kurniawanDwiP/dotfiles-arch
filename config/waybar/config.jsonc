@@ -14,6 +14,7 @@
       "group/music",
       "custom/separator",
       "niri/window",
+      "cffi/niri-taskbar",
     ],
     "modules-center": ["clock"],
     "modules-right": [

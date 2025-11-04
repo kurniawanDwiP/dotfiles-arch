@@ -190,4 +190,16 @@
   "custom/arrowLeft": {
     "format": "",
   },
+
+  "cffi/niri-taskbar": {
+    "module_path": "~/libniri_taskbar.so",
+    "apps": {
+      "signal": [
+        {
+          "match": "\\([0-9]+\\)$",
+          "class": "unread",
+        },
+      ],
+    },
+  },
 }

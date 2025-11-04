@@ -33,7 +33,7 @@ open_store() {
         action_cmd='sudo pacman -Rns'
         ;;
       remove-aur)
-        list_cmd='yay -Qm'
+        list_cmd='yay -Qm | awk '\''{print \$1}'\''' 
         preview_cmd='yay -Qi {1}'
         action_cmd='yay -Rns'
         ;;
