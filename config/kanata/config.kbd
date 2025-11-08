@@ -1,6 +1,7 @@
 (defcfg
 process-unmapped-keys yes
 concurrent-tap-hold yes
+sequence-timeout 2000
 )
 
 ;;variable
@@ -20,14 +21,26 @@ z       x       c       v       b       n       m       ,       .       /
 
 (deflayer base
 _       _       _       _       _       _       _       _       _       _
-@lM     @chS    @chD    @chF    _       _       @chJ    @chK    @chL    @rM
+@lM     @lA     @lS     @lC     _       _       @chJ    @chK    @chL    @rM
 _       _       _       _       _       _       _       _       _       _
 )
 
-(deflayer symbol
+#|(deflayer symbol
 S-;     [       ]       S-4     S-5     S-6     S-7     S-8     '       bspc
 S-[     @sS     @sD     @sF     =       S-=     -       S-,     S-.     S-'
 S-grv   grv     S-\     S--     /       \       S-2     S-3     S-1     S-/
+)|#
+
+(deflayer symbol
+S-;     [       ]       S-'     S-6     _       _       _       _       _   
+S-[     S-9     S-0     S-]     =       _       _       _       _       _  
+S-grv   ,       .       grv     S-4     _       _       _       _       _  
+)
+
+(deflayer symNum
+_       S-7     S-8     S-9     _       _       _       _       _       _   
+_       S-4     S-5     S-6     =       _       _       _       _       _  
+_       S-1     S-2     S-3     _       _       _       _       _       _  
 )
 
 ;;homerow mod
@@ -44,6 +57,8 @@ rC (tap-hold $tap $hold j lctl)
 
 ;;chord (jkl)
 (defalias
+lsymbol (layer-while-held symbol)
+lsymNum (layer-while-held symNum)
 chJ (chord symbol j)
 chK (chord symbol k)
 chL (chord symbol l)
@@ -52,37 +67,27 @@ chL (chord symbol l)
 (j      ) @rC
 (   k   ) @rS
 (      l) @rA
+(j  k   ) @lsymbol
+(   k  l) @lsymNum
 (j  k  l) ret
 )
 
-;;chord (sdf)
-(defalias
-chS (chord layer s)
-chD (chord layer d)
-chF (chord layer f)
-)
-(defchords layer $chord
-(s      ) @lA
-(   d   ) @lS
-(      f) @lC
-(s  d  f) @swt
+(defseq
+start-dev (s d v)
+run-dev (r d v)
+git-status (g s t)
+https (h t t p s)
+dotcom (d c)
 )
 
-(defalias 
-sS (chord swt s)
-sD (chord swt d)
-sF (chord swt f)
-)
-(defchords swt $chord
-(s      ) S-9
-(   d   ) S-0
-(      f) S-]
-(s  d  f) @swt
+(defchordsv2 
+(s d f) sldr 300 all-released ()
 )
 
-(defalias swt
-  (switch
-     ((layer base)) (layer-switch symbol) break
-     ((layer symbol)) (layer-switch base) break
-  )
+(defvirtualkeys
+run-dev (macro n p m spc r u n spc d e v)
+start-dev (macro n p m spc r u n spc s t a r t S-; d e v)
+git-status (macro g i t spc s t a t u s)
+https (macro h t t p s S-; / /)
+dotcom (macro . c o m)
 )

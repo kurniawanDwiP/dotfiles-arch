@@ -24,6 +24,7 @@ output "DP-1" {
 cursor {
   hide-when-typing
 }
+
 layout {
     gaps 5
     // always-center-single-column
@@ -79,9 +80,6 @@ animations {
   // slowdown 1.5
 }
 
-workspace "social"{
-}
-
 window-rule {
     match app-id=r#"floorp$"# title="^Picture-in-Picture$"
     open-floating true
@@ -92,7 +90,7 @@ window-rule {
     block-out-from "screen-capture"
 }
 window-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 0
     clip-to-geometry true
     opacity 0.9
     // focus-ring {
@@ -117,9 +115,9 @@ window-rule {
 
 window-rule {
   match app-id="floorp" title=r#"(?i).*Whatsapp.*"#
+  match app-id="floorp" title=r#"(?i)gmail"#
   match app-id="discord"
   block-out-from "screen-capture"
-  open-on-workspace "social"
 }
 
 window-rule {
@@ -127,7 +125,7 @@ window-rule {
   default-column-width {fixed 600;}
   default-window-height {fixed 600;}
   open-floating true
-  geometry-corner-radius 8
+  geometry-corner-radius 0
 }
 
 window-rule {
