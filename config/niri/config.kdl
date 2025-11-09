@@ -26,7 +26,7 @@ cursor {
 }
 
 layout {
-    gaps 5
+    gaps 8
     // always-center-single-column
     center-focused-column "never"
     preset-column-widths {
@@ -116,6 +116,7 @@ window-rule {
 window-rule {
   match app-id="floorp" title=r#"(?i).*Whatsapp.*"#
   match app-id="floorp" title=r#"(?i)gmail"#
+  match app-id="floorp" title=r#"(?i)email"#
   match app-id="discord"
   block-out-from "screen-capture"
 }
@@ -136,7 +137,7 @@ window-rule {
 }
 
 window-rule{
-  match app-id="kitty" title="store"
+  match app-id="ghostty" title="store"
   open-floating true
   default-column-width {fixed 600;}
   default-window-height {fixed 600;}
@@ -161,17 +162,17 @@ overview {
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+B hotkey-overlay-title="Run an Application: floorp" { spawn "floorp"; }
     // Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn "fuzzel"; }
     Mod+Space hotkey-overlay-title="Run an Application launcher" { spawn-sh "~/dotfiles/config/niri/walker-menu apps"; }
     Mod+ALT+Space hotkey-overlay-title="Run an Menu" { spawn-sh "~/dotfiles/config/niri/walker-menu"; }
     Mod+Escape { spawn-sh "~/dotfiles/config/niri/walker-menu system"; }
-    Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "kitty --title yazi -e yazi"; }
+    Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "ghostty --title=yazi --font-size=12 -e yazi"; }
     Mod+D hotkey-overlay-title="Run an Application: discord" { spawn "discord"; }
-    Mod+N hotkey-overlay-title="Run an Application: nvim" { spawn-sh "kitty --title nvim -e nvim"; }
-    Mod+M repeat=false hotkey-overlay-title="Run an Application: wiremix" { spawn-sh "kitty --title wiremix -e wiremix"; }
-    Mod+T repeat=false hotkey-overlay-title="Run an Application: btop" { spawn-sh "kitty --title btop -e btop"; }
+    Mod+N hotkey-overlay-title="Run an Application: nvim" { spawn-sh "ghostty --title=nvim --font-size=16 -e nvim"; }
+    Mod+M repeat=false hotkey-overlay-title="Run an Application: wiremix" { spawn-sh "ghostty --title=wiremix --font-size=12 -e wiremix"; }
+    Mod+T repeat=false hotkey-overlay-title="Run an Application: btop" { spawn-sh "ghostty --title=btop --font-size=12 -e btop"; }
 
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
