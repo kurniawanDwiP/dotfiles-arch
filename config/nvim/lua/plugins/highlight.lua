@@ -14,7 +14,11 @@ return {
         -- "@lsp.type.property",
         "@lsp.type.function",
         "@lsp.type.method",
+        "decorator",
+        "@attribute.typescript",
         -- "@lsp.type.namespace",
+        "@variable.builtin.typescript",
+        "@keyword.import.typescript",
       }
 
       -- Grup string yang ingin dibuat italic
@@ -23,6 +27,10 @@ return {
         "@string.regex",
         "@string.escape",
         "@string.special",
+        "@lsp.type.type",
+        "@lsp.type.interface",
+        "@lsp.type.enum",
+        "@type.builtin.typescript",
       }
 
       vim.api.nvim_create_autocmd("ColorScheme", {
