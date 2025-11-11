@@ -31,7 +31,7 @@ _       _       _       _       _       _       _       _       _       _
 (deflayer symbol2
 S-1     S-2     S-3     S-4     [       ]       S-5     S-6     S-7     S-8
 S--     -       S-;     S-[     S-9     S-0     S-]     S-'     =       S-=
-grv     S-grv   S-/     S-,     \       S-\     S-.     ,       .       /
+S-grv   grv     S-/     S-,     \       S-\     S-.     ,       .       /
                                 spc
 )
 
@@ -74,13 +74,16 @@ run-dev (r d v)
 git-status (g s t)
 https (h t t p s)
 dotcom (d c)
+arrow-fuction (a r f)
 )
 
 (defchordsv2 
 (s d f) sldr 300 all-released ()
 )
 
+
 (defvirtualkeys
+arrow-fuction (macro = spc S-9 S-0 spc = S-. spc)
 run-dev (macro n p m spc r u n spc d e v)
 start-dev (macro n p m spc r u n spc s t a r t S-; d e v)
 git-status (macro g i t spc s t a t u s)

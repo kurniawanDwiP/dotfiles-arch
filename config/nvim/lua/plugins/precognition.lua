@@ -9,7 +9,7 @@ return {
       Caret = { text = "^", prio = 2 },
       Dollar = { text = "$", prio = 1 },
       MatchingPair = { text = "%", prio = 5 },
-      Zero = { text = "0", prio = 1 },
+      Zero = { text = "0", prio = 0 },
       w = { text = "w", prio = 10 },
       b = { text = "b", prio = 9 },
       e = { text = "e", prio = 8 },
