@@ -1,3 +1,4 @@
+
 (defcfg
 process-unmapped-keys yes
 concurrent-tap-hold yes
@@ -7,7 +8,7 @@ sequence-timeout 2000
 ;;variable
 (defvar
 tap 50
-hold 200
+hold 150
 chord 70
 one-shot 2000
 tap-dance 150
@@ -17,30 +18,27 @@ tap-dance 150
 q       w       e       r       t       y       u       i       o       p
 a       s       d       f       g       h       j       k       l       ;
 z       x       c       v       b       n       m       ,       .       /
+                                spc
 )
 
 (deflayer base
 _       _       _       _       _       _       _       _       _       _
 @lM     @lA     @lS     @lC     _       _       @chJ    @chK    @chL    @rM
 _       _       _       _       _       _       _       _       _       _
+                                @layer
 )
 
-#|(deflayer symbol
-S-;     [       ]       S-4     S-5     S-6     S-7     S-8     '       bspc
-S-[     @sS     @sD     @sF     =       S-=     -       S-,     S-.     S-'
-S-grv   grv     S-\     S--     /       \       S-2     S-3     S-1     S-/
-)|#
-
-(deflayer symbol
-S-;     [       ]       S-'     S-6     _       _       _       _       _   
-S-[     S-9     S-0     S-]     =       _       _       _       _       _  
-S-grv   ,       .       grv     S-4     _       _       _       _       _  
+(deflayer symbol2
+S-1     S-2     S-3     S-4     [       ]       S-5     S-6     S-7     S-8
+S--     -       S-;     S-[     S-9     S-0     S-]     S-'     =       S-=
+grv     S-grv   S-/     S-,     \       S-\     S-.     ,       .       /
+                                spc
 )
 
-(deflayer symNum
-_       S-7     S-8     S-9     _       _       _       _       _       _   
-_       S-4     S-5     S-6     =       _       _       _       _       _  
-_       S-1     S-2     S-3     _       _       _       _       _       _  
+
+;;layer 
+(defalias
+layer (tap-hold $tap $hold spc (layer-while-held symbol2))
 )
 
 ;;homerow mod
@@ -57,8 +55,6 @@ rC (tap-hold $tap $hold j lctl)
 
 ;;chord (jkl)
 (defalias
-lsymbol (layer-while-held symbol)
-lsymNum (layer-while-held symNum)
 chJ (chord symbol j)
 chK (chord symbol k)
 chL (chord symbol l)
@@ -67,8 +63,8 @@ chL (chord symbol l)
 (j      ) @rC
 (   k   ) @rS
 (      l) @rA
-(j  k   ) @lsymbol
-(   k  l) @lsymNum
+(j  k   ) tab
+(   k  l) S-tab
 (j  k  l) ret
 )
 
