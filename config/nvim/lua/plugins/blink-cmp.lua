@@ -45,7 +45,7 @@ return {
           max_height = 8,
           border = "rounded",
           scrollbar = false,
-          winblend = 0,
+          winblend = 100,
           draw = {
             components = {
               kind_icon = {
