@@ -69,10 +69,10 @@ chL (chord symbol l)
 )
 
 (defseq
-start-dev ( s d v)
+start-dev (s d v)
 run-dev (r d v)
 git-status (g s t)
-https (h t t p s)
+https (h t t)
 dotcom (d c)
 arrow-fuction (a r f)
 )
