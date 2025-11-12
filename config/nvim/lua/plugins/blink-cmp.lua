@@ -45,7 +45,7 @@ return {
           max_height = 8,
           border = "rounded",
           scrollbar = false,
-          winblend = 100,
+          winblend = 10,
           draw = {
             components = {
               kind_icon = {
@@ -85,7 +85,7 @@ return {
         documentation = {
           window = {
             border = "rounded",
-            winblend = 100,
+            winblend = 10,
           },
         },
       },
@@ -93,6 +93,12 @@ return {
       -- ensure you have the `snippets` source (enabled by default)
       sources = {
         default = { "snippets", "lsp", "path" },
+        transform_items = function(ctx, items)
+          -- Remove the "Text" source from lsp autocomplete
+          return vim.tbl_filter(function(item)
+            return item.kind ~= vim.lsp.protocol.CompletionItemKind.Text
+          end, items)
+        end,
       },
     },
   },
