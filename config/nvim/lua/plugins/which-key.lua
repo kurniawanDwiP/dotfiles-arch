@@ -6,7 +6,11 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-      preset = "c lassic",
+      preset = "classic",
+      win = {
+        height = { min = 4, max = 30 },
+        border = "rounded",
+      },
     },
     keys = {
       {
