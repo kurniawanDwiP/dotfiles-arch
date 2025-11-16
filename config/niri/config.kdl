@@ -1,3 +1,4 @@
+prefer-no-csd
 config-notification {
     disable-failed
 }
@@ -55,6 +56,15 @@ layout {
         color "#0007"
     }
     struts {
+    } 
+    tab-indicator {
+    // place-within-column
+    gap -10
+    width 4
+    length total-proportion=0.06
+    gaps-between-tabs 4
+    corner-radius 12
+    position "left"
     }
 }
 layer-rule {
@@ -74,7 +84,7 @@ spawn-at-startup "~/virtual-mic.sh"
 environment {
   XDG_CURRENT_DESKTOP "niri"
   QT_QPA_PLATFORM "wayland"
-  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  // ELECTRON_OZONE_PLATFORM_HINT "auto"
   QT_QPA_PLATFORMTHEME "gtk3"
   QT_QPA_PLATFORMTHEME_QT6 "gtk3"
   TERMINAL "ghostty"
@@ -82,7 +92,6 @@ environment {
 hotkey-overlay {
     skip-at-startup
 }
-prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
     workspace-switch {
@@ -154,11 +163,7 @@ window-rule {
     match is-active=false
     opacity 0.9
 }
-window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id="zoom"
-    open-floating true
-}
+
 window-rule {
     geometry-corner-radius 4
     clip-to-geometry true
@@ -169,6 +174,12 @@ window-rule {
   match app-id="floorp" title="^Picture-in-Picture$"
   match app-id="floorp" title=r#"(?i).*YouTube.*"#
   opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"floorp$"# title="^Picture-in-Picture$"
+    match app-id="zoom"
+    open-floating true
 }
 
 window-rule {
@@ -224,7 +235,7 @@ binds {
     Mod+Space hotkey-overlay-title="Application Launcher" {
         spawn "dms" "ipc" "call" "spotlight" "toggle";
     }
-    Mod+V hotkey-overlay-title="Clipboard Manager" {
+    Mod+Alt+V hotkey-overlay-title="Clipboard Manager" {
         spawn "dms" "ipc" "call" "clipboard" "toggle";
     }
     Mod+M hotkey-overlay-title="Task Manager" {
@@ -238,6 +249,7 @@ binds {
     }
     Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "ghostty --title=yazi --font-size=12 -e yazi"; }
 
     // === Security ===
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
@@ -274,7 +286,7 @@ binds {
     Mod+Q repeat=false { close-window; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-    Mod+Shift+T { toggle-window-floating; }
+    Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
 
