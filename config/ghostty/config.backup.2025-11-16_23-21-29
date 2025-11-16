@@ -1,0 +1,13 @@
+theme=Catppuccin Mocha
+
+font-family=Maple Mono NF CN
+font-family-bold=Maple Mono NF Bold 
+font-family-italic=Maple Mono NF Italic 
+font-family-bold-italic=Maple Mono NF Bold Italic 
+font-size=12
+
+shell-integration=zsh
+confirm-close-surface=false
+
+window-padding-x=8
+window-padding-y=8
