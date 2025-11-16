@@ -8,8 +8,8 @@ sequence-timeout 2000
 ;;variable
 (defvar
 tap 50
-hold 150
-chord 70
+hold 200
+chord 100
 one-shot 2000
 tap-dance 150
 )
@@ -25,7 +25,7 @@ z       x       c       v       b       n       m       ,       .       /
 _       _       _       _       _       _       _       _       _       _
 @lM     @lA     @lS     @lC     _       _       @chJ    @chK    @chL    @rM
 _       _       _       _       _       _       _       _       _       _
-                                @layer
+                                spc
 )
 
 (deflayer symbol2
@@ -35,10 +35,11 @@ S-grv   grv     S-/     S-,     \       S-\     S-.     ,       .       /
                                 spc
 )
 
-
-;;layer 
-(defalias
-layer (tap-hold $tap $hold spc (layer-while-held symbol2))
+(defalias switch
+  (switch
+    ((layer base)) (layer-switch symbol2) break
+    ((layer symbol2)) (layer-switch base) break
+  )
 )
 
 ;;homerow mod
@@ -79,8 +80,8 @@ arrow-fuction (a r f)
 
 (defchordsv2 
 (s d f) sldr 300 all-released ()
+(f  j) @switch 200 all-released ()
 )
-
 
 (defvirtualkeys
 arrow-fuction (macro = spc S-9 S-0 spc = S-. spc)
