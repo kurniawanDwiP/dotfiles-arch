@@ -32,11 +32,11 @@ layout {
     background-color "transparent"
     center-focused-column "never"
     preset-column-widths {
-        proportion 0.33333
+        proportion 0.333
         proportion 0.5
-        proportion 0.66667
+        proportion 0.667
     }
-    default-column-width { proportion 0.33333; }
+    default-column-width { proportion 0.333; }
     border {
         off
         width 4
@@ -85,7 +85,7 @@ spawn-at-startup "~/virtual-mic.sh"
 environment {
   XDG_CURRENT_DESKTOP "niri"
   QT_QPA_PLATFORM "wayland"
-  // ELECTRON_OZONE_PLATFORM_HINT "auto"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
   QT_QPA_PLATFORMTHEME "gtk3"
   QT_QPA_PLATFORMTHEME_QT6 "gtk3"
   TERMINAL "ghostty"
@@ -193,7 +193,7 @@ window-rule {
   match app-id="floorp" title=r#"(?i).*Whatsapp.*"#
   match app-id="floorp" title=r#"(?i)gmail"#
   match app-id="floorp" title=r#"(?i)email"#
-  match app-id="discord"
+  match app-id="vesktop"
   block-out-from "screen-capture"
 }
 
@@ -207,9 +207,9 @@ window-rule {
 
 window-rule {
   match title="yazi"
-  match app-id="discord"
+  match app-id="vesktop"
   match title="btop"
-  default-column-width {proportion 0.66667;}
+  default-column-width {proportion 0.667;}
 }
 
 window-rule{
@@ -232,7 +232,7 @@ binds {
     // === System & Overview ===
     Mod+O { spawn "niri" "msg" "action" "toggle-overview"; }
     Mod+B {spawn "floorp";}
-    Mod+D {spawn "discord";}
+    Mod+D {spawn "vesktop";}
     Mod+Alt+Space {spawn-sh "~/dotfiles/config/niri/walker-menu";}
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }

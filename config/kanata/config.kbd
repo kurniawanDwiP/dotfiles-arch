@@ -7,9 +7,9 @@ sequence-timeout 2000
 
 ;;variable
 (defvar
-tap 50
-hold 200
-chord 100
+tap 160
+hold 160
+chord 120
 one-shot 2000
 tap-dance 150
 )
@@ -80,7 +80,9 @@ arrow-fuction (a r f)
 
 (defchordsv2 
 (s d f) sldr 300 all-released ()
-(f  j) @switch 200 all-released ()
+(f  j) (layer-while-held symbol2) 200 all-released ()
+(a  s) lsft 200 all-released ()
+(l  ;) rsft 200 all-released ()
 )
 
 (defvirtualkeys

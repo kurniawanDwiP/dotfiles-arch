@@ -4,6 +4,7 @@ return {
     ---@type snacks.Config
     opts = {
       explorer = {
+        enabled = false,
         -- your explorer configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
@@ -23,13 +24,13 @@ return {
                   title = "{title} {live} {flags}",
                   title_pos = "left",
                   position = "left",
-                  border = "rounded",
+                  border = "none",
                   box = "vertical",
                   { win = "list", border = "none" },
                   {
                     win = "input",
                     height = 1,
-                    border = true,
+                    border = "single",
                     title = "{title} {live} {flags}",
                     title_pos = "left",
                   },

@@ -9,7 +9,7 @@ return {
       preset = "classic",
       win = {
         height = { min = 4, max = 30 },
-        border = "rounded",
+        border = "none",
       },
     },
     keys = {

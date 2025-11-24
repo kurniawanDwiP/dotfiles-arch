@@ -19,6 +19,7 @@ return {
         -- "@lsp.type.namespace",
         "@variable.builtin.typescript",
         "@keyword.import.typescript",
+        "@tag.builtin.tsx",
       }
 
       -- Grup string yang ingin dibuat italic

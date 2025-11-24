@@ -12,7 +12,7 @@ return {
               row = -1,
               width = 0,
               height = 0.2,
-              border = "rounded",
+              border = "none",
               title = " {title} {live} {flags}",
               title_pos = "left",
               {

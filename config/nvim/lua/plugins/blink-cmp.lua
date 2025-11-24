@@ -43,7 +43,7 @@ return {
         },
         menu = {
           max_height = 8,
-          border = "rounded",
+          border = "none",
           scrollbar = false,
           winblend = 10,
           draw = {
@@ -84,7 +84,7 @@ return {
         },
         documentation = {
           window = {
-            border = "rounded",
+            border = "none",
             winblend = 10,
           },
         },
@@ -92,7 +92,7 @@ return {
       snippets = { preset = "luasnip" },
       -- ensure you have the `snippets` source (enabled by default)
       sources = {
-        default = { "snippets", "lsp", "path" },
+        default = { "snippets", "lsp", "path", "buffer" },
         transform_items = function(ctx, items)
           -- Remove the "Text" source from lsp autocomplete
           return vim.tbl_filter(function(item)

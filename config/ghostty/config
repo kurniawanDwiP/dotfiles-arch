@@ -48,7 +48,7 @@ keybind = shift+enter=text:\n
 gtk-single-instance = true
 
 # Dank color generation
-theme=Catppuccin Mocha
+theme=Catppuccin Frappe
 
 font-family=Maple Mono NF CN
 font-family-bold=Maple Mono NF Bold 

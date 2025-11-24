@@ -13,7 +13,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "catppuccin-frappe",
     },
   },
   {
@@ -29,9 +29,6 @@ return {
       -- Default sets of terminals you'd like to open
       terminals = {
         { name = "Terminal" },
-        -- cmd can be function too
-        { name = "Terminal", cmd = "neofetch" },
-        -- More terminals
       },
     },
     cmd = "FloatermToggle",
