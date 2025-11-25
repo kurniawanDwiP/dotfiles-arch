@@ -80,7 +80,7 @@ arrow-fuction (a r f)
 
 (defchordsv2 
 (s d f) sldr 300 all-released ()
-(f  j) (layer-while-held symbol2) 200 all-released ()
+(f  j) (one-shot $one-shot (layer-while-held symbol2)) 200 all-released ()
 (a  s) lsft 200 all-released ()
 (l  ;) rsft 200 all-released ()
 )
