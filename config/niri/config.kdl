@@ -1,4 +1,8 @@
 prefer-no-csd
+workspace "media"
+workspace "social"
+workspace "work"
+
 config-notification {
     disable-failed
 }
@@ -32,11 +36,11 @@ layout {
     background-color "transparent"
     center-focused-column "never"
     preset-column-widths {
-        proportion 0.333
+        proportion 0.33333
         proportion 0.5
-        proportion 0.667
+        proportion 0.66667
     }
-    default-column-width { proportion 0.333; }
+    default-column-width { proportion 0.33333; }
     border {
         off
         width 4
@@ -219,6 +223,11 @@ window-rule{
   default-window-height {fixed 600;}
 }
 
+window-rule{
+match app-id="vesktop"
+open-on-workspace "social"
+}
+
 layer-rule {
     match namespace="^wallpaper$"
     // place-within-backdrop true
@@ -255,7 +264,7 @@ binds {
         spawn "dms" "ipc" "call" "dankdash" "wallpaper";
     }
     Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-    Mod+Alt+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
     Mod+E hotkey-overlay-title="Run an Application: yazi" { spawn-sh "ghostty --title=yazi --font-size=12 -e yazi"; }
 
     // === Security ===
@@ -295,7 +304,7 @@ binds {
     Mod+Shift+F { fullscreen-window; }
     Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+T { toggle-column-tabbed-display; }
 
     // === Focus Navigation ===
     Mod+Left  { focus-column-left; }
@@ -350,14 +359,14 @@ binds {
     Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Down { move-column-to-workspace-down; }
     Mod+Ctrl+Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Shift+U         { move-column-to-workspace-down; }
+    Mod+Shift+I         { move-column-to-workspace-up; }
 
     // === Move Workspaces ===
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+Ctrl+Page_Down { move-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-workspace-up; }
+    Mod+Ctrl+U         { move-workspace-down; }
+    Mod+Ctrl+I         { move-workspace-up; }
 
     // === Mouse Wheel Navigation ===
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
@@ -385,6 +394,8 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
+    Mod+S { focus-workspace "social"; }
+    Mod+W { focus-workspace "work"; }
 
     // === Move to Numbered Workspaces ===
     Mod+Shift+1 { move-column-to-workspace 1; }
