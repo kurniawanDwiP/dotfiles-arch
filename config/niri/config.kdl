@@ -1,7 +1,7 @@
 prefer-no-csd
-workspace "media"
-workspace "social"
 workspace "work"
+workspace "social"
+workspace "media"
 
 config-notification {
     disable-failed
@@ -181,22 +181,23 @@ window-rule {
 }
 
 window-rule {
-  match app-id="floorp" title=r#"(?i).*YouTube.*"#
-  match app-id="floorp" title="^Picture-in-Picture$"
-  match app-id="floorp" title=r#"(?i).*YouTube.*"#
+  match app-id="chromium" title=r#"(?i).*YouTube.*"#
+  match app-id="chrome-youtube.com__-Default" 
+  match app-id="chromium" title="^Picture-in-Picture$"
+  match app-id="chromium" title=r#"(?i).*YouTube.*"#
   opacity 1.0
 }
 
 window-rule {
-    match app-id=r#"floorp$"# title="^Picture-in-Picture$"
+    match app-id=r#"chromium$"# title="^Picture-in-Picture$"
     match app-id="zoom"
     open-floating true
 }
 
 window-rule {
-  match app-id="floorp" title=r#"(?i).*Whatsapp.*"#
-  match app-id="floorp" title=r#"(?i)gmail"#
-  match app-id="floorp" title=r#"(?i)email"#
+  match app-id="chromium" title=r#"(?i).*Whatsapp.*"#
+  match app-id="chromium" title=r#"(?i)gmail"#
+  match app-id="chromium" title=r#"(?i)email"#
   match app-id="vesktop"
   block-out-from "screen-capture"
 }
@@ -225,7 +226,9 @@ window-rule{
 
 window-rule{
 match app-id="vesktop"
+match title=r#"(?i).*Whatsapp.*"#
 open-on-workspace "social"
+default-column-width {proportion 0.5;}
 }
 
 layer-rule {
@@ -240,8 +243,11 @@ layer-rule {
 binds {
     // === System & Overview ===
     Mod+O { spawn "niri" "msg" "action" "toggle-overview"; }
-    Mod+B {spawn "floorp";}
+    Mod+B {spawn "chromium";}
     Mod+D {spawn "vesktop";}
+    Mod+Shift+D {spawn-sh "chromium --app=https://web.whatsapp.com --new-window --class=whatsapp";}
+    Mod+Shift+Y {spawn-sh "chromium --app=https://youtube.com --new-window --class=youtube";}
+    Mod+G {spawn-sh "chromium --app=https://gmail.com/ --new-window --class=gmail";}
     Mod+Alt+Space {spawn-sh "~/dotfiles/config/niri/walker-menu";}
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
