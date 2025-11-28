@@ -181,23 +181,23 @@ window-rule {
 }
 
 window-rule {
-  match app-id="chromium" title=r#"(?i).*YouTube.*"#
+  match app-id="zen" title=r#"(?i).*YouTube.*"#
   match app-id="chrome-youtube.com__-Default" 
-  match app-id="chromium" title="^Picture-in-Picture$"
-  match app-id="chromium" title=r#"(?i).*YouTube.*"#
+  match app-id="zen" title="^Picture-in-Picture$"
+  match app-id="zen" title=r#"(?i).*YouTube.*"#
   opacity 1.0
 }
 
 window-rule {
-    match app-id=r#"chromium$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
     match app-id="zoom"
     open-floating true
 }
 
 window-rule {
-  match app-id="chromium" title=r#"(?i).*Whatsapp.*"#
-  match app-id="chromium" title=r#"(?i)gmail"#
-  match app-id="chromium" title=r#"(?i)email"#
+  match app-id="zen" title=r#"(?i).*Whatsapp.*"#
+  match app-id="zen" title=r#"(?i)gmail"#
+  match app-id="zen" title=r#"(?i)email"#
   match app-id="vesktop"
   block-out-from "screen-capture"
 }
@@ -243,11 +243,8 @@ layer-rule {
 binds {
     // === System & Overview ===
     Mod+O { spawn "niri" "msg" "action" "toggle-overview"; }
-    Mod+B {spawn "chromium";}
+    Mod+B {spawn "zen-browser";}
     Mod+D {spawn "vesktop";}
-    Mod+Shift+D {spawn-sh "chromium --app=https://web.whatsapp.com --new-window --class=whatsapp";}
-    Mod+Shift+Y {spawn-sh "chromium --app=https://youtube.com --new-window --class=youtube";}
-    Mod+G {spawn-sh "chromium --app=https://gmail.com/ --new-window --class=gmail";}
     Mod+Alt+Space {spawn-sh "~/dotfiles/config/niri/walker-menu";}
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
