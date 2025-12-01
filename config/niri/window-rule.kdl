@@ -1,10 +1,114 @@
 window-rule {
-  match title="yazi"
-  match app-id="discord"
-  default-column-width {proportion 0.7;}
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+window-rule {
+    match app-id=r#"^org\.gnome\."#
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+window-rule {
+    match app-id=r#"^gnome-control-center$"#
+    match app-id=r#"^pavucontrol$"#
+    match app-id=r#"^nm-connection-editor$"#
+    default-column-width { proportion 0.5; }
+    open-floating false
+}
+window-rule {
+    match app-id=r#"^gnome-calculator$"#
+    match app-id=r#"^galculator$"#
+    match app-id=r#"^blueman-manager$"#
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    match app-id=r#"^steam$"#
+    match app-id=r#"^xdg-desktop-portal$"#
+    open-floating true
+}
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id="Alacritty"
+    match app-id="zen"
+    match app-id="com.mitchellh.ghostty"
+    match app-id="kitty"
+    draw-border-with-background false
 }
 
 window-rule {
+    match is-active=true
+    opacity 0.9
+}
+
+window-rule {
+    match is-active=false
+    opacity 0.8
+}
+
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
+
+window-rule {
+  match app-id="zen" title=r#"(?i).*YouTube.*"#
+  match app-id="chrome-youtube.com__-Default" 
+  match app-id="zen" title="^Picture-in-Picture$"
+  match app-id="zen" title=r#"(?i).*YouTube.*"#
+  opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match app-id="zoom"
+    open-floating true
+}
+
+window-rule {
+  match app-id="zen" title=r#"(?i).*Whatsapp.*"#
+  match app-id="zen" title=r#"(?i)gmail"#
+  match app-id="zen" title=r#"(?i)email"#
+  match app-id="vesktop"
+  block-out-from "screen-capture"
+}
+
+window-rule {
+  match title="wiremix"
+  default-column-width {fixed 600;}
+  default-window-height {fixed 600;}
+  open-floating true
+  geometry-corner-radius 0
+}
+
+window-rule {
+  match title="yazi"
+  match app-id="vesktop"
   match title="btop"
-  default-column-width {proportion 0.5;}
+  default-column-width {proportion 0.667;}
+}
+
+window-rule{
+  match app-id="ghostty" title="store"
+  open-floating true
+  default-column-width {fixed 600;}
+  default-window-height {fixed 600;}
+}
+
+window-rule{
+match app-id="vesktop"
+match title=r#"(?i).*Whatsapp.*"#
+open-on-workspace "social"
+default-column-width {proportion 0.5;}
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+    // place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="^notifications$"
+  block-out-from "screencast"
+}
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
 }

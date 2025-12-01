@@ -1,0 +1,53 @@
+prefer-no-csd
+config-notification {
+    disable-failed
+}
+output "DP-1" {
+    mode "1920x1080@144.000"
+    scale 1.0
+    transform "normal"
+    position x=1280 y=0
+}
+gestures {
+    hot-corners {
+        off
+    }
+}
+input {
+    keyboard {
+        xkb {
+        }
+        numlock
+    }
+    touchpad {
+    }
+    mouse {
+    }
+    trackpoint {
+    }
+    focus-follows-mouse
+}
+
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+spawn-at-startup "dms" "run"
+spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+spawn-at-startup "elephant"
+spawn-at-startup "~/virtual-mic.sh"
+environment {
+  XDG_CURRENT_DESKTOP "niri"
+  QT_QPA_PLATFORM "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  TERMINAL "ghostty"
+}
+hotkey-overlay {
+    skip-at-startup
+}
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
