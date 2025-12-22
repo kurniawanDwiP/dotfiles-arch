@@ -1,7 +1,7 @@
 binds {
     // === System & Overview ===
     Mod+O { spawn "niri" "msg" "action" "toggle-overview"; }
-    Mod+B {spawn "zen-browser";}
+    Mod+B {spawn "firefox";}
     Mod+D {spawn "vesktop";}
     Mod+Alt+Space {spawn-sh "~/dotfiles/config/niri/walker-menu";}
     Mod+Tab repeat=false { toggle-overview; }
@@ -15,7 +15,7 @@ binds {
     Mod+Alt+V hotkey-overlay-title="Clipboard Manager" {
         spawn "dms" "ipc" "call" "clipboard" "toggle";
     }
-    Mod+M hotkey-overlay-title="Task Manager" {
+    Mod+Shift+T hotkey-overlay-title="Task Manager" {
         spawn "dms" "ipc" "call" "processlist" "toggle";
     }
     Mod+Comma hotkey-overlay-title="Settings" {
@@ -86,6 +86,9 @@ binds {
     Mod+Shift+J     { move-window-down; }
     Mod+Shift+K     { move-window-up; }
     Mod+Shift+L     { move-column-right; }
+    Mod+Shift+W     { move-column-to-workspace "work";}
+    Mod+Shift+S     { move-column-to-workspace "social";}
+    Mod+Shift+M     { move-column-to-workspace "media";}
 
     // === Column Navigation ===
     Mod+Home { focus-column-first; }
@@ -157,6 +160,7 @@ binds {
     Mod+9 { focus-workspace 9; }
     Mod+S { focus-workspace "social"; }
     Mod+W { focus-workspace "work"; }
+    Mod+M { focus-workspace "media"; }
 
     // === Move to Numbered Workspaces ===
     Mod+Shift+1 { move-column-to-workspace 1; }
