@@ -1,9 +1,8 @@
 binds {
     // === System & Overview ===
     Mod+O { spawn "niri" "msg" "action" "toggle-overview"; }
-    Mod+B {spawn "firefox";}
+    Mod+B {spawn "chromium";}
     Mod+D {spawn "vesktop";}
-    Mod+Alt+Space {spawn-sh "~/dotfiles/config/niri/walker-menu";}
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 

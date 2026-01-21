@@ -1,5 +1,5 @@
 layout {
-    gaps 8
+    gaps 7
 
     border {
         width 2
@@ -10,7 +10,7 @@ layout {
     }
 }
 window-rule {
-    geometry-corner-radius 4
+    geometry-corner-radius 8
     clip-to-geometry true
     tiled-state true
     draw-border-with-background false

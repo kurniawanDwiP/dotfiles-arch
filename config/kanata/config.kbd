@@ -7,32 +7,32 @@ sequence-timeout 2000
 
 ;;variable
 (defvar
-tap 160
-hold 160
+tap 60
+hold 60
 chord 120
 one-shot 2000
 tap-dance 150
 )
 
 (defsrc
-q       w       e       r       t       y       u       i       o       p
-a       s       d       f       g       h       j       k       l       ;
-z       x       c       v       b       n       m       ,       .       /
+        q       w       e       r       t       y       u       i       o       p
+caps    a       s       d       f       g       h       j       k       l       ;
+        z       x       c       v       b       n       m       ,       .       /
                                 spc
 )
 
 (deflayer base
-_       _       _       _       _       _       _       _       _       _
-@lM     @lA     @lS     @lC     _       _       @chJ    @chK    @chL    @rM
-_       _       _       _       _       _       _       _       _       _
-                                spc
+        _       _       _       _       _       _       _       _       _       _
+sldr    @lM     @lA     @lS     @lC     _       _       @chJ    @chK    @chL    @rM
+        _       _       _       _       _       _       _       _       _       _
+                                        spc
 )
 
 (deflayer symbol2
-S-1     S-2     S-3     S-4     [       ]       S-5     S-6     S-7     S-8
-S--     -       S-;     S-[     S-9     S-0     S-]     S-'     =       S-=
-S-grv   grv     S-/     S-,     \       S-\     S-.     ,       .       /
-                                spc
+        S-1     S-2     S-3     S-4     [       ]       S-5     S-6     S-7     S-8
+sldr    S--     -       S-;     S-[     S-9     S-0     S-]     S-'     =       S-=
+        S-grv   grv     S-/     S-,     \       S-\     S-.     ,       .       /
+                                        spc
 )
 
 (defalias switch
@@ -72,6 +72,9 @@ chL (chord symbol l)
 (defseq
 start-dev (s d v)
 run-dev (r d v)
+bun-dev (b r d)
+bun-build (b r b)
+bun-start (b r s)
 git-status (g s t)
 https (h t t)
 dotcom (d c)
@@ -87,6 +90,9 @@ arrow-fuction (a r f)
 
 (defvirtualkeys
 arrow-fuction (macro = spc S-9 S-0 spc = S-. spc)
+bun-dev (macro b u n spc r u n spc d e v)
+bun-build (macro b u n spc r u n spc b u i l d)
+bun-start (macro b u n spc r u n spc s t a r t)
 run-dev (macro n p m spc r u n spc d e v)
 start-dev (macro n p m spc r u n spc s t a r t S-; d e v)
 git-status (macro g i t spc s t a t u s)
