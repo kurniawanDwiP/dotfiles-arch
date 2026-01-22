@@ -169,7 +169,10 @@ wk.add {
   -- },
 
   --- utils-surround
-  { "<leader>s", group = "surround", icon = " ", mode = { "n", "v" } },
+  { "<leader>s", group = "surround", icon = {
+    icon = " ",
+    color = "purple",
+  }, mode = { "n", "v" } },
   { "<leader>l", group = "lsp", desc = "file" },
   { "<leader>ra", hidden = true },
 }

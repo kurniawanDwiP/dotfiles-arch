@@ -6,7 +6,7 @@
 -- local M = {}
 --
 -- M.base46 = {
--- 	theme = "nord",
+-- 	theme = "everforest",
 --
 -- 	-- hl_override = {
 -- 	-- 	Comment = { italic = true },
@@ -25,7 +25,7 @@
 local options = {
 
   base46 = {
-    theme = "nord", -- default theme
+    theme = "everforest", -- default theme
     hl_add = {},
     hl_override = {
       ["@lsp.type.function"] = { bold = true },
@@ -37,7 +37,7 @@ local options = {
     integrations = {},
     changed_themes = {},
     transparency = false,
-    theme_toggle = { "nord", "one_light" },
+    theme_toggle = { "everforest", "one_light" },
   },
 
   ui = {

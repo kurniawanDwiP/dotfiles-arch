@@ -1,6 +1,7 @@
 require "nvchad.mappings"
 require "custom.keymaps"
 require "custom.treesitter-keymap"
+require "custom.todo-keymaps"
 -- local wk = require "which-key"
 --
 -- wk.add { "<leader>gg", "<cmd>LazyGit<cr>", desc = "lazygit", mode = "n", icon = " " }
