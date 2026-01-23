@@ -76,11 +76,11 @@ local repeat_move = require "nvim-treesitter-textobjects.repeatable_move"
 wk.add {
   { ";", repeat_move.repeat_last_move_next, desc = "Repeat Move Forward", mode = { "n", "x", "o" } },
   { ",", repeat_move.repeat_last_move_previous, desc = "Repeat Move Backward", mode = { "n", "x", "o" } },
-
-  { "f", repeat_move.builtin_f_expr, mode = { "n", "x", "o" }, expr = true },
-  { "F", repeat_move.builtin_F_expr, mode = { "n", "x", "o" }, expr = true },
-  { "t", repeat_move.builtin_t_expr, mode = { "n", "x", "o" }, expr = true },
-  { "T", repeat_move.builtin_T_expr, mode = { "n", "x", "o" }, expr = true },
+  --
+  -- { "f", repeat_move.builtin_f_expr, mode = { "n", "x", "o" }, expr = true },
+  -- { "F", repeat_move.builtin_F_expr, mode = { "n", "x", "o" }, expr = true },
+  -- { "t", repeat_move.builtin_t_expr, mode = { "n", "x", "o" }, expr = true },
+  -- { "T", repeat_move.builtin_T_expr, mode = { "n", "x", "o" }, expr = true },
 }
 
 return true
