@@ -40,8 +40,8 @@ vim.lsp.config.vtsls = {
   },
 }
 
-local servers = { "html", "cssls", "vtsls", "tailwindcss", "harper_ls" }
-vim.lsp.enable(servers)
+-- local servers = { "html", "cssls", "vtsls", "tailwindcss", "harper_ls" }
+-- vim.lsp.enable(servers)
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)

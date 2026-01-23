@@ -49,4 +49,11 @@ wk.add {
     end,
     desc = "insert warning",
   },
+  {
+    "<leader>ib",
+    function()
+      insert_tag "BUG"
+    end,
+    desc = "insert bug",
+  },
 }

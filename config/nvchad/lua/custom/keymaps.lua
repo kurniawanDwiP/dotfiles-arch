@@ -62,7 +62,6 @@ wk.add {
     hidden = true,
   },
   { "<C-x>", "<C-\\><C-N>", desc = "terminal escape terminal mode", mode = "t", hidden = true },
-  { "jj", "<C-\\><C-N>", desc = "terminal escape terminal mode", mode = "t", hidden = true },
 
   --- telescope
   { "<leader>f", group = "find/files", mode = { "n", "v" } },
@@ -138,10 +137,6 @@ wk.add {
     mode = "n",
   },
   { "<leader>uK", "<cmd>WhichKey <cr>", desc = "whichkey all keymaps", mode = "n" },
-
-  -- comment
-  { "<leader>/", "gcc", desc = "toggle comment", mode = "n" },
-  { "<leader>/", "gc", desc = "toggle comment", mode = "v" },
 
   -- code
   { "<leader>c", group = "code" },

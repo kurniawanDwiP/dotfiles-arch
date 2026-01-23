@@ -13,6 +13,21 @@ return {
     end,
   },
 
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    lazy = false,
+    config = function()
+      require("mason-lspconfig").setup {
+        automatic_enable = true,
+      }
+    end,
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
