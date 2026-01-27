@@ -9,59 +9,59 @@ wk.add {
   { "<C-k>", "<C-w>k", desc = "switch window up", mode = "n", hidden = true },
 
   --- terminal
-  { "<leader>t", group = "terminal" },
-  {
-    "<leader>th",
-    function()
-      require("nvchad.term").new { pos = "sp" }
-    end,
-    desc = "new horizontal terminal",
-    mode = "n",
-  },
-  {
-    "<leader>tv",
-    function()
-      require("nvchad.term").new { pos = "vsp" }
-    end,
-    desc = "new vertical terminal",
-    mode = "n",
-  },
-  {
-    "<leader>tf",
-    function()
-      require("nvchad.term").new { pos = "float" }
-    end,
-    desc = "new floating terminal",
-    mode = "n",
-  },
-  {
-    "<A-v>",
-    function()
-      require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
-    end,
-    desc = "toggle vertical terminal",
-    mode = { "n", "t" },
-    hidden = true,
-  },
-  {
-    "<A-h>",
-    function()
-      require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-    end,
-    desc = "toggle horizontal terminal",
-    mode = { "n", "t" },
-    hidden = true,
-  },
-  {
-    "<A-i>",
-    function()
-      require("nvchad.term").toggle { pos = "float", id = "htoggleTerm" }
-    end,
-    desc = "toggle floating terminal",
-    mode = { "n", "t" },
-    hidden = true,
-  },
-  { "<C-x>", "<C-\\><C-N>", desc = "terminal escape terminal mode", mode = "t", hidden = true },
+  -- { "<leader>t", group = "terminal" },
+  -- {
+  --   "<leader>th",
+  --   function()
+  --     require("nvchad.term").new { pos = "sp" }
+  --   end,
+  --   desc = "new horizontal terminal",
+  --   mode = "n",
+  -- },
+  -- {
+  --   "<leader>tv",
+  --   function()
+  --     require("nvchad.term").new { pos = "vsp" }
+  --   end,
+  --   desc = "new vertical terminal",
+  --   mode = "n",
+  -- },
+  -- {
+  --   "<leader>tf",
+  --   function()
+  --     require("nvchad.term").new { pos = "float" }
+  --   end,
+  --   desc = "new floating terminal",
+  --   mode = "n",
+  -- },
+  -- {
+  --   "<A-v>",
+  --   function()
+  --     require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+  --   end,
+  --   desc = "toggle vertical terminal",
+  --   mode = { "n", "t" },
+  --   hidden = true,
+  -- },
+  -- {
+  --   "<A-h>",
+  --   function()
+  --     require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+  --   end,
+  --   desc = "toggle horizontal terminal",
+  --   mode = { "n", "t" },
+  --   hidden = true,
+  -- },
+  -- {
+  --   "<A-i>",
+  --   function()
+  --     require("nvchad.term").toggle { pos = "float", id = "htoggleTerm" }
+  --   end,
+  --   desc = "toggle floating terminal",
+  --   mode = { "n", "t" },
+  --   hidden = true,
+  -- },
+  -- { "<C-x>", "<C-\\><C-N>", desc = "terminal escape terminal mode", mode = "t", hidden = true },
 
   --- telescope
   { "<leader>f", group = "find/files", mode = { "n", "v" } },
@@ -148,6 +148,7 @@ wk.add {
     desc = "diagnostics",
     mode = "n",
   },
+
   -- {
   --   "<leader>ca",
   --   vim.lsp.buf.code_action,
@@ -212,6 +213,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
           require("nvim-treesitter-textobjects.swap").swap_previous "@parameter.outer"
         end,
         desc = "LSP swap param prev",
+        mode = "n",
+      },
+      {
+        "<leader>cA",
+        function()
+          vim.lsp.buf.code_action { context = { only = { "source" }, diagnostics = {} } }
+        end,
+        desc = "lsp source action",
         mode = "n",
       },
     }

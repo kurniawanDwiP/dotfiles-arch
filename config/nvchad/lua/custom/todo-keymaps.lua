@@ -8,7 +8,7 @@ local function insert_tag(tag)
   if text == cs then
     text = tag .. ":"
   end
-  vim.api.nvim_feedkeys("i" .. text .. " ", "n", false)
+  vim.api.nvim_feedkeys("O" .. text .. " ", "n", false)
 end
 
 vim.api.nvim_set_hl(0, "WKNoteIcon", { fg = "#fc9803" })
