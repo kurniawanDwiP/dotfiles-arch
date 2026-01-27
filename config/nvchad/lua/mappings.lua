@@ -9,41 +9,19 @@ require "custom.todo-keymaps"
 
 local map = vim.keymap.set
 local del = vim.keymap.del
-
-map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<C-o>")
 map({ "i" }, "jj", "<ESC>")
+map({ "n" }, "L", function()
+  require("nvchad.tabufline").next()
+end)
+map({ "n" }, "H", function()
+  require("nvchad.tabufline").prev()
+end)
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+--- del keymap
 del({ "n" }, "<leader>ds")
 del({ "n" }, "<leader>ma")
 del({ "n" }, "<leader>rn")
 del({ "n" }, "<leader>pt")
--- map({ "n" }, "<C-p>", "<cmd>FloatermToggle<CR>", { silent = true })
--- map({ "i" }, "<C-p>", "<cmd>FloatermToggle<CR>", { silent = true })
--- map({ "n" }, "<leader>tt", "<cmd>TimerlyToggle<CR>", { silent = true, desc = "TimerlyToggle" })
--- map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code action" })
--- map("n", "]t", function()
---   require("todo-comments").jump_next()
--- end, { desc = "Next todo comment" })
---
--- map("n", "[t", function()
---   require("todo-comments").jump_prev()
--- end, { desc = "Previous todo comment" })
---
--- -- You can also specify a list of valid jump keywords
---
--- map("n", "]t", function()
---   require("todo-comments").jump_next { keywords = { "ERROR", "WARNING", "FIX" } }
--- end, { desc = "Next error/warning todo comment" })
---
--- map("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "telescope todo" })
--- map("n", "<leader>fd", function()
---   require("telescope.builtin").lsp_document_symbols {
---     symbols = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
---   }
--- end, { desc = "telescope document symbols" })
---
--- map("n", "<leader>cd", function()
---   require("telescope.builtin").diagnostics()
--- end, { desc = "diagnostics" })
-
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+del({ "n" }, "<leader>cm")

@@ -2,7 +2,7 @@ return {
   {
     "nvim-mini/mini.surround",
     version = "*",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require("mini.surround").setup(
         -- No need to copy this inside `setup()`. Will be used automatically.
