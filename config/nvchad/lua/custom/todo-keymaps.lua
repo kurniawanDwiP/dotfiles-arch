@@ -15,7 +15,7 @@ vim.api.nvim_set_hl(0, "WKNoteIcon", { fg = "#fc9803" })
 wk.add {
   {
     "<leader>i",
-    group = "note",
+    group = "[I]nsert[N]ote",
     icon = {
       icon = " ",
       hl = "WKNoteIcon",
