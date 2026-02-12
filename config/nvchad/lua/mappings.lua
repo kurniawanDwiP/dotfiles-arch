@@ -27,6 +27,12 @@ map(
     "<cmd>TmuxNavigateRight<cr>",
     { desc = "tmux right" }
 )
+map(
+    "n",
+    "<leader> ",
+    "<cmd>Telescope find_files<cr>",
+    { desc = "Telescope find files" }
+)
 --- del keymap
 del({ "n" }, "<leader>ds")
 del({ "n" }, "<leader>ma")

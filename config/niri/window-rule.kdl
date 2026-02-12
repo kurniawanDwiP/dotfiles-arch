@@ -20,7 +20,7 @@ window-rule {
     match app-id=r#"^galculator$"#
     match app-id=r#"^blueman-manager$"#
     match app-id=r#"^org\.gnome\.Nautilus$"#
-    match app-id=r#"^steam$"#
+    // match app-id=r#"^steam$"#
     match app-id=r#"^xdg-desktop-portal$"#
     open-floating true
 }
@@ -54,6 +54,7 @@ window-rule {
   match app-id="chromium" title="^Picture-in-Picture$"
   match app-id="chromium" title=r#"(?i).*YouTube.*"#
   match app-id="vesktop"
+  match app-id="discord"
   opacity 1.0
 }
 
@@ -66,8 +67,10 @@ window-rule {
 window-rule {
   match app-id="chromium" title=r#"(?i).*Whatsapp.*"#
   match app-id="chromium" title=r#"(?i)gmail"#
+  match app-id="chromium" title=r#"(?i)mail"#
   match app-id="chromium" title=r#"(?i)email"#
-  match app-id="vesktop"
+  // match app-id="vesktop"
+  match app-id="discord"
   block-out-from "screen-capture"
 }
 
@@ -81,7 +84,6 @@ window-rule {
 
 window-rule {
   match title="yazi"
-  match app-id="vesktop"
   match title="btop"
   default-column-width {proportion 0.667;}
 }
@@ -94,6 +96,7 @@ window-rule{
 }
 
 window-rule{
+match app-id="dicord"
 match app-id="vesktop"
 match title=r#"(?i).*Whatsapp.*"#
 open-on-workspace "social"

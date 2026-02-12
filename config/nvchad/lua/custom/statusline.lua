@@ -1,0 +1,235 @@
+local M = {}
+local colors = dofile(vim.g.base46_cache .. "colors")
+
+M.stbufnr = function()
+  return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+end
+
+vim.g.current_time = os.date "%H:%M"
+local function update_clock()
+  vim.g.current_time = os.date "%H:%M"
+  vim.cmd "redrawstatus"
+end
+vim.loop.new_timer():start(0, 100, vim.schedule_wrap(update_clock))
+
+_G.get_clock = function()
+  return "  " .. vim.g.current_time .. " "
+end
+
+-- Setup highlights
+local highlights = {
+  Normal = { fg = "#f4f4f4", bg = colors.one_bg },
+  Separator = { fg = colors.one_bg, bg = colors.black },
+  Separator2 = { fg = colors.black, bg = colors.one_bg },
+  ModeText = { fg = "#956dca", bg = colors.one_bg },
+  PathText = { fg = "#956dca", bg = colors.one_bg },
+  FileText = { fg = "#f4f3ee", bg = colors.one_bg },
+  FileType = { fg = "#e37e4f", bg = colors.one_bg },
+  BranchName = { fg = "#69bfce", bg = colors.one_bg },
+  LineText = { fg = "#e34f4f", bg = colors.one_bg },
+  ColumnText = { fg = "#5679e3", bg = colors.one_bg },
+  PercentageText = { fg = "#5599e2", bg = colors.one_bg },
+  TotalLineText = { fg = "#956dca", bg = colors.one_bg },
+  DiagnosticsText = { fg = "#67b0e8", bg = colors.one_bg },
+  LSPColor = { fg = "#8ccf7e", bg = colors.one_bg },
+
+  DiagError = { fg = "#e06c75", bg = colors.one_bg },
+  DiagWarn = { fg = "#e5c07b", bg = colors.one_bg },
+  DiagInfo = { fg = "#61afef", bg = colors.one_bg },
+  DiagHint = { fg = "#98c379", bg = colors.one_bg },
+  ClockText = { fg = "#8ccf7e", bg = colors.one_bg },
+}
+
+-- Set highlights
+for group, opts in pairs(highlights) do
+  vim.api.nvim_set_hl(0, group, opts)
+end
+
+_G.GetModeText = function()
+  local mode = vim.fn.mode()
+  local mode_map = {
+    n = "󰊠 N",
+    i = "󰏫 I",
+    R = "󰊠 R",
+    v = "󰆓 V",
+    V = "󰆓 V-L",
+    [""] = "󰆓 V-B",
+    c = "󰘔 C",
+    t = "󰊠 T",
+  }
+
+  return mode_map[mode] or (" " .. mode .. " ")
+end
+_G.RecolorMode = function()
+  local mode = vim.fn.mode()
+  local color_map = {
+    n = { fg = "#5599e2", bg = colors.one_bg },
+    i = { fg = "#e34f4f", bg = colors.one_bg },
+    R = { fg = "#69bfce", bg = colors.one_bg },
+    v = { fg = "#e37e4f", bg = colors.one_bg },
+    V = { fg = "#e37e4f", bg = colors.one_bg },
+    ["\22"] = { fg = "#e37e4f", bg = colors.one_bg },
+    c = { fg = "#5679e3", bg = colors.one_bg },
+    t = { fg = "#5679e3", bg = colors.one_bg },
+  }
+
+  local hl = color_map[mode]
+  if hl then
+    vim.api.nvim_set_hl(0, "ModeText", hl)
+  end
+  return ""
+end
+
+_G.SetFiletype = function(filetype)
+  return (filetype == nil or filetype == "") and "unknown" or filetype
+end
+
+_G.file = function()
+  local icon = "󰈤"
+  local path = vim.api.nvim_buf_get_name(M.stbufnr())
+  local name = (path == "" and "Empty") or path:match "([^/\\]+)[/\\]*$"
+
+  if name ~= "Empty" then
+    local devicons_present, devicons = pcall(require, "nvim-web-devicons")
+    if devicons_present then
+      local ft_icon = devicons.get_icon(name)
+      icon = (ft_icon ~= nil and ft_icon) or icon
+    end
+  end
+
+  return " " .. icon .. " " .. name
+end
+
+_G.git = function()
+  if
+    not vim.b[M.stbufnr()].gitsigns_head
+    or not vim.b[M.stbufnr()].gitsigns_status_dict
+  then
+    return " no repo"
+  end
+
+  local git_status = vim.b[M.stbufnr()].gitsigns_status_dict
+
+  local added = (git_status.added and git_status.added ~= 0)
+      and ("  " .. git_status.added)
+    or ""
+  local changed = (git_status.changed and git_status.changed ~= 0)
+      and ("  " .. git_status.changed)
+    or ""
+  local removed = (git_status.removed and git_status.removed ~= 0)
+      and ("  " .. git_status.removed)
+    or ""
+  local branch_name = " " .. (git_status.head or "unknown")
+
+  return " " .. branch_name .. added .. changed .. removed .. " "
+end
+
+_G.diagnostics_color = function()
+  if not rawget(vim, "lsp") then
+    return "%#DiagnosticsText#󰞇 %*"
+  end
+
+  local err = #vim.diagnostic.get(
+    M.stbufnr(),
+    { severity = vim.diagnostic.severity.ERROR }
+  )
+  local warn = #vim.diagnostic.get(
+    M.stbufnr(),
+    { severity = vim.diagnostic.severity.WARN }
+  )
+  local info = #vim.diagnostic.get(
+    M.stbufnr(),
+    { severity = vim.diagnostic.severity.INFO }
+  )
+  local hints = #vim.diagnostic.get(
+    M.stbufnr(),
+    { severity = vim.diagnostic.severity.HINT }
+  )
+
+  local parts = {}
+  if err > 0 then
+    table.insert(parts, "%#DiagError# " .. err .. " %*")
+  end
+  if warn > 0 then
+    table.insert(parts, "%#DiagWarn# " .. warn .. " %*")
+  end
+  if info > 0 then
+    table.insert(parts, "%#DiagInfo#󰋼 " .. info .. " %*")
+  end
+  if hints > 0 then
+    table.insert(parts, "%#DiagHint#󰛩 " .. hints .. " %*")
+  end
+
+  if #parts == 0 then
+    return "%#DiagnosticsText#󰞇 %*"
+  else
+    return table.concat(parts, "")
+  end
+end
+
+_G.lsp = function()
+  if rawget(vim, "lsp") then
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      if client.attached_buffers and client.attached_buffers[M.stbufnr()] then
+        return (vim.o.columns > 100 and "   LSP ~ " .. client.name .. " ")
+          or "   LSP "
+      end
+    end
+  end
+  return ""
+end
+
+_G.HandleColumnGap = function()
+  local col = vim.fn.col "."
+  return col > 9 and " " or " "
+end
+
+-- Set the statusline
+vim.opt.statusline = table.concat {
+  "%{%v:lua.RecolorMode()%}",
+
+  "%#Separator# █",
+  "%#ModeText#%{v:lua.GetModeText()}",
+  "%#Separator#█",
+
+  "%#Separator#█",
+  "%#PathText#%{expand('%:p:h:t')}",
+  "%#Separator#█",
+  "%#Separator#█",
+  "%{%v:lua.diagnostics_color()%}",
+  "%#Separator#",
+
+  "%=",
+
+  "%#Separator#",
+  "%#ClockText#%{v:lua.get_clock()}",
+  "%#Separator# ",
+
+  "%=",
+
+  "%#Separator#",
+  "%#FileType#%{v:lua.file()}",
+  "%#Separator#█",
+
+  "%#Separator#█",
+  "%#BranchName#%{v:lua.git()}",
+  "%#Separator#█",
+
+  "%#Separator#█",
+  "%#LSPColor#%{v:lua.lsp()}",
+  "%#Separator#█",
+  "%#BranchName#%{v:lua.HandleColumnGap()}",
+  "%#ColumnText#%2c",
+
+  "%#Separator2#",
+  "%#Separator#█",
+  "%#Separator#█",
+  "%#PercentageText#%p%%",
+  "%#Separator#█",
+  "%#Separator2# ",
+  "%#Separator#█",
+  "%#TotalLineText#%L",
+  "%#Separator#█ ",
+}
+
+return M

@@ -7,8 +7,8 @@ sequence-timeout 2000
 
 ;;variable
 (defvar
-tap 60
-hold 60
+tap 150
+hold 250
 chord 120
 one-shot 2000
 tap-dance 150
@@ -23,14 +23,14 @@ caps    a       s       d       f       g       h       j       k       l       
 
 (deflayer base
         _       _       _       _       _       _       _       _       _       _
-sldr    @lM     @lA     @lS     @lC     _       _       @chJ    @chK    @chL    @rM
+bspc    @forka  @forks  @forkd  @forkf  _       @forkh  @chJ    @chK    @chL    @rM
         _       _       _       _       _       _       _       _       _       _
-                                        spc
+                                       @spc
 )
 
 (deflayer symbol2
         S-1     S-2     S-3     S-4     [       ]       S-5     S-6     S-7     S-8
-sldr    S--     -       S-;     S-[     S-9     S-0     S-]     S-'     =       S-=
+bspc    S--     -       S-;     S-[     S-9     S-0     S-]     S-'     =       S-=
         S-grv   grv     S-/     S-,     \       S-\     S-.     ,       .       /
                                         spc
 )
@@ -52,6 +52,19 @@ rM (tap-hold $tap $hold ; lmet)
 rA (tap-hold $tap $hold l lalt)
 rS (tap-hold $tap $hold k lsft)
 rC (tap-hold $tap $hold j lctl)
+spc (tap-hold $tap $hold spc nop0)
+)
+
+;; fork homerow
+(defalias
+forkh (fork h left (nop0))
+forkj (fork @rC down (nop0))
+forkk (fork @rS up (nop0))
+forkl (fork @rA right (nop0))
+forka (fork @lM S-6 (nop0))
+forkf (fork @lC S-4 (nop0))
+forks (fork @lA , (nop0))
+forkd (fork @lS . (nop0))
 )
 
 ;;chord (jkl)
@@ -61,9 +74,9 @@ chK (chord symbol k)
 chL (chord symbol l)
 )
 (defchords symbol $chord
-(j      ) @rC
-(   k   ) @rS
-(      l) @rA
+(j      ) @forkj
+(   k   ) @forkk
+(      l) @forkl
 (j  k   ) tab
 (   k  l) S-tab
 (j  k  l) ret

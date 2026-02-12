@@ -1,0 +1,22 @@
+
+(defcfg
+process-unmapped-keys yes
+concurrent-tap-hold yes
+sequence-timeout 2000
+)
+
+
+
+(defsrc
+        q       w       e       r       t       y       u       i       o       p      [    ]
+caps    a       s       d       f       g       h       j       k       l       ;      '
+        z       x       c       v       b       n       m       ,       .       /
+                                spc
+)
+
+(deflayer base
+        b       y       o       u       '       S-'     l       d       w       v      z     S-3
+bspc    c       i       e       a       ,       .       h       t       s       n      q
+        g       x       j       k       S--     S-/     r       m       f       p
+                                spc
+)
