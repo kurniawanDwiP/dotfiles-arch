@@ -22,7 +22,7 @@
 -- }
 
 -- return M
-local full = require "custom.statusline"
+require "custom.statusline"
 local options = {
 
   base46 = {
@@ -47,14 +47,13 @@ local options = {
     telescope = { style = "borderless" }, -- borderless / bordered
 
     statusline = {
-      -- enabled = true,
-      -- theme = "minimal", -- default/vscode/vscode_colored/minimal
-      -- -- default/round/block/arrow separators work only for default statusline theme
-      -- -- round and block will work for minimal theme only
-      -- separator_style = "round",
-      -- order = nil,
-      -- modules = nil,
       enabled = false,
+      theme = "minimal", -- default/vscode/vscode_colored/minimal
+      -- default/round/block/arrow separators work only for default statusline theme
+      -- round and block will work for minimal theme only
+      separator_style = "round",
+      order = nil,
+      modules = nil,
     },
 
     -- lazyload it when there are 1+ buffers

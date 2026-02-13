@@ -25,7 +25,7 @@ input {
     }
     trackpoint {
     }
-    focus-follows-mouse
+    // focus-follows-mouse
 }
 
 spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
