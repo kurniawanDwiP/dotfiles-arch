@@ -1,61 +1,31 @@
 return {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { "rebelot/kanagawa.nvim" },
-  -- {
-  --   "vague-theme/vague.nvim",
-  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  --   priority = 1000, -- make sure to load this before all the other plugins
-  --   config = function()
-  --     -- NOTE: you do not need to call setup if you don't want to.
-  --     require("vague").setup({
-  --       -- optional configuration here
-  --     })
-  --     vim.cmd("colorscheme vague")
-  --   end,
-  -- },
-  { "kepano/flexoki-neovim", name = "flexoki" },
+  { "barrettruth/midnight.nvim" },
+  { "shaunsingh/nord.nvim" },
   {
-    "folke/tokyonight.nvim",
+    "0xstepit/flow.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
-  },
-
-  -- Configure LazyVim to load gruvbox
-  {
-    "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
-    },
-  },
-  {
-    "nvzone/floaterm",
-    dependencies = "nvzone/volt",
-    opts = {
-      border = false,
-      size = { h = 60, w = 70 },
-
-      -- to use, make this func(buf)
-      mappings = {
-        term = function(buf)
-          vim.keymap.set({ "n", "t" }, "<C-p>", function()
-            require("floaterm.api").cycle_term_bufs("prev")
-          end, { buffer = buf })
-        end,
+      theme = {
+        style = "dark", --  "dark" | "light"
+        contrast = "default", -- "default" | "high"
+        transparent = false, -- true | false
       },
-
-      -- Default sets of terminals you'd like to open
-      terminals = {
-        { name = "Terminal" },
-        { name = "Lazygit", cmd = "lazygit" },
+      colors = {
+        mode = "default", -- "default" | "dark" | "light"
+        fluo = "pink", -- "pink" | "cyan" | "yellow" | "orange" | "green"
+        custom = {
+          saturation = "", -- "" | string representing an integer between 0 and 100
+          light = "", -- "" | string representing an integer between 0 and 100
+        },
+      },
+      ui = {
+        borders = "none", -- "light" | "dark" | "none"
+        aggressive_spell = false, -- true | false
       },
     },
-    cmd = "FloatermToggle",
   },
-  {
-    "nvzone/timerly",
-    dependencies = "nvzone/volt",
-    cmd = "TimerlyToggle",
-    opts = {}, -- optional
-  },
+  { "LazyVim/LazyVim", opts = {
+    colorscheme = "flow",
+  } },
 }

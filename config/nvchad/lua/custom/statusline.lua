@@ -17,7 +17,7 @@ local separators = {
 
 local mode_map = {
   n = "󰊠 ",
-  i = " ",
+  i = " ",
   R = " ",
   v = " ",
   V = " L",
@@ -30,7 +30,7 @@ local icon_map = {
   modified = "  ",
   readonly = "  ",
   no_repo = " no repo",
-  diagnostics = "󰞇",
+  diagnostics = "󰞇 ",
   lsp = "",
   clock = "",
   file = "󰈤",
@@ -295,21 +295,21 @@ function _G.diagnostics_color()
     and diagnostics.info == 0
     and diagnostics.hint == 0
   then
-    return ""
+    return "%#FileType#" .. icon_map.diagnostics
   end
 
   local parts = {}
   if diagnostics.err > 0 then
-    table.insert(parts, "%#DiagError#  " .. diagnostics.err .. " %*")
+    table.insert(parts, "%#DiagError# " .. diagnostics.err .. " %*")
   end
   if diagnostics.warn > 0 then
-    table.insert(parts, "%#DiagWarn#  " .. diagnostics.warn .. " %*")
+    table.insert(parts, "%#DiagWarn# " .. diagnostics.warn .. " %*")
   end
   if diagnostics.info > 0 then
-    table.insert(parts, "%#DiagInfo# 󰋼 " .. diagnostics.info .. " %*")
+    table.insert(parts, "%#DiagInfo#󰋼 " .. diagnostics.info .. " %*")
   end
   if diagnostics.hint > 0 then
-    table.insert(parts, "%#DiagHint# 󰛩 " .. diagnostics.hint .. " %*")
+    table.insert(parts, "%#DiagHint#󰛩 " .. diagnostics.hint .. " %*")
   end
 
   return table.concat(parts, " ")
@@ -330,11 +330,7 @@ function _G.lsp()
       -- Ambil nama client pertama
       local client_name = clients[1].name
       if vim.o.columns > 100 then
-        return "%#LSPColor# "
-          .. icon_map.lsp
-          .. "  LSP ~ "
-          .. client_name
-          .. " %*"
+        return "%#LSPColor# " .. icon_map.lsp .. " " .. client_name .. " %*"
       else
         return "%#LSPColor# " .. icon_map.lsp .. "  LSP %*"
       end
@@ -396,11 +392,9 @@ function _G.build_statusline()
     "%#SeparatorModeLeft#" .. separators.fill .. separators.soft_right_alt,
 
     -- Clock section
-    "%#Separator#"
-      .. separators.soft_left
-      .. separators.fill,
+    "%#Separator#" .. separators.soft_left,
     "%#ClockText#%{v:lua.get_clock()}",
-    "%#Separator#" .. separators.fill .. separators.soft_right_alt,
+    "%#Separator#" .. separators.soft_right_alt,
 
     -- Path section
     "%#Separator#"

@@ -1,0 +1,30 @@
+;; chord jkl
+(defalias
+cJ (chord jkl j)
+cK (chord jkl k)
+cL (chord jkl l)
+)
+(defchords jkl $chord
+(j      ) @rc
+(   k   ) @rs
+(      l) @ra
+(j  k   ) @sym
+(   k  l) @log
+(j  k  l) ret
+)
+
+;; chord sdf
+(defalias
+cS (chord sdf s)
+cD (chord sdf d)
+cF (chord sdf f)
+)
+(defchords sdf $chord
+(s      ) @la
+(   d   ) @ls
+(      f) @lc
+(s  d   ) @sys
+(   d  f) @num
+(s  d  f) esc
+)
+

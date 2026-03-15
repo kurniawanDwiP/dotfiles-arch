@@ -1,31 +1,43 @@
 return {
   {
     "folke/snacks.nvim",
+    ---@type snacks.Config
     opts = {
+      explorer = {
+        enabled = false,
+        -- your explorer configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
       picker = {
-        layout = "custom",
-        layouts = {
-          custom = {
-            layout = {
-              box = "vertical",
-              backdrop = false,
-              row = -1,
-              width = 0,
-              height = 0.2,
-              border = "none",
-              title = " {title} {live} {flags}",
-              title_pos = "left",
-              {
-                box = "horizontal",
-                { win = "list", border = "none" },
-                { win = "preview", title = "{preview}", width = 0.6, border = "left" },
+        sources = {
+          explorer = {
+            git_status = true,
+            layout = "custom",
+            layouts = {
+              custom = {
+                layout = {
+                  backdrop = false,
+                  width = 30,
+                  min_width = 30,
+                  height = 0,
+                  title = "{title} {live} {flags}",
+                  title_pos = "left",
+                  position = "right",
+                  border = "none",
+                  box = "vertical",
+                  { win = "list", border = "none" },
+                  {
+                    win = "input",
+                    height = 1,
+                    border = "single",
+                    title = "{title} {live} {flags}",
+                    title_pos = "left",
+                  },
+                },
               },
-              { win = "input", height = 1, border = "bottom" },
             },
           },
-        },
-        source = {
-          grep = {},
         },
       },
     },

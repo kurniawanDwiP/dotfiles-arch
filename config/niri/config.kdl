@@ -7,3 +7,5 @@ include "keybind.kdl"
 include "general.kdl"
 include "layout.kdl"
 include "animation.kdl"
+
+include "dms/windowrules.kdl"

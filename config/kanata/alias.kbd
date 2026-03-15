@@ -1,0 +1,75 @@
+;; mouse
+(defalias
+msu (movemouse-up 3 2)
+msl (movemouse-left 3 2)
+msd (movemouse-down 3 2)
+msr (movemouse-right 3 2)
+mwu (mwheel-up 1 1)
+mwd (mwheel-down 1 1)
+ml (tap-hold-release $tap $hold mltp mlft)
+mr (tap-hold-release $tap $hold mrtp mrgt)
+)
+
+;; layer-while-held
+(defalias
+lSym (layer-while-held symbol)
+lLog (layer-while-held logical)
+lSys (layer-while-held system)
+lNum (layer-while-held numpad)
+)
+
+;; fake-keys
+(defvirtualkeys
+to-base (layer-switch base)
+)
+
+;; move-to-nomods
+  (defalias 
+   tap (multi
+   (layer-switch nomods)
+   (on-idle 20 tap-vkey to-base)
+     )
+  )
+
+(defalias
+lm (tap-hold-release-keys $tap $hold (multi a @tap) lmet $left-hand)
+la (tap-hold-release-keys $tap $hold (multi s @tap) lalt $left-hand)
+ls (tap-hold-release-keys $tap $hold (multi d @tap) (multi lsft nop3) $left-hand)
+lc (tap-hold-release-keys $tap $hold (multi f @tap) (multi lctl nop2) $left-hand)
+rc (tap-hold-release-keys $tap $hold (multi j @tap) (multi rctl nop0) $right-hand)
+rs (tap-hold-release-keys $tap $hold (multi k @tap) (multi rsft nop1) $right-hand)
+ra (tap-hold-release-keys $tap $hold (multi l @tap) ralt $right-hand)
+rm (tap-hold-release-keys $tap $hold (multi ; @tap) rmet $right-hand)
+)
+
+;; magic key
+(defalias
+  magic (switch
+      ((key-history c 2)) (macro n s t spc) break
+      ((key-history a 2)) (macro a i t spc) break
+      ((key-history f 3)) (macro c t i o n spc) break
+      ((or (and (key-history e 2) (key-history x 1) ) (and (key-history i 2) (key-history m 1) ))) (macro p o r t spc) break
+      ((and (key-history i 3) (key-history n 2) (key-history t 1))) (macro e r f a c e spc) break
+      )
+  layer-switch (switch 
+  ((and nop0)) (layer-switch symbol) break
+  ((and nop1)) (layer-switch logical) break
+  ((and nop2)) (layer-switch numpad) break
+  ((and nop3)) (layer-switch system) break
+  ((not (layer base))) (layer-switch base) break
+  () (tap-hold $tap $hold spc (layer-while-held utility)) break
+  )
+  col (switch 
+  (( layer utility )) (layer-switch colemak) break
+  () (layer-while-held base) break
+  )
+)
+
+;; layer-switch
+(defalias
+sym (tap-hold-release-keys $tap $hold (multi n @tap) @lSym $right-hand)
+log (tap-hold-release-keys $tap $hold (multi m @tap) @lLog $right-hand)
+sys (tap-hold-release-keys $tap $hold (multi c @tap) @lSys $left-hand)
+num (tap-hold-release-keys $tap $hold (multi v @tap) @lNum $left-hand)
+spc (tap-hold $tap $hold spc (layer-while-held utility) )
+)

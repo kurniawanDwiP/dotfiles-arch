@@ -1,114 +1,21 @@
-
 (defcfg
 process-unmapped-keys yes
 concurrent-tap-hold yes
 sequence-timeout 2000
+rapid-event-delay 20   
+delegate-to-first-layer yes
+danger-enable-cmd yes
 )
 
-;;variable
-(defvar
-tap 150
-hold 250
-chord 120
-one-shot 2000
-tap-dance 150
-)
+(include layer.kbd)
+(include variable.kbd)
+(include alias.kbd)
+(include chord.kbd)
+(include switch.kbd)
 
 (defsrc
-        q       w       e       r       t       y       u       i       o       p
-caps    a       s       d       f       g       h       j       k       l       ;
-        z       x       c       v       b       n       m       ,       .       /
-                                spc
-)
-
-(deflayer base
-        _       _       _       _       _       _       _       _       _       _
-bspc    @forka  @forks  @forkd  @forkf  _       @forkh  @chJ    @chK    @chL    @rM
-        _       _       _       _       _       _       _       _       _       _
-                                       @spc
-)
-
-(deflayer symbol2
-        S-1     S-2     S-3     S-4     [       ]       S-5     S-6     S-7     S-8
-bspc    S--     -       S-;     S-[     S-9     S-0     S-]     S-'     =       S-=
-        S-grv   grv     S-/     S-,     \       S-\     S-.     ,       .       /
-                                        spc
-)
-
-(defalias switch
-  (switch
-    ((layer base)) (layer-switch symbol2) break
-    ((layer symbol2)) (layer-switch base) break
-  )
-)
-
-;;homerow mod
-(defalias
-lM (tap-hold $tap $hold a lmet)
-lA (tap-hold $tap $hold s lalt)
-lS (tap-hold $tap $hold d lsft)
-lC (tap-hold $tap $hold f lctl)
-rM (tap-hold $tap $hold ; lmet)
-rA (tap-hold $tap $hold l lalt)
-rS (tap-hold $tap $hold k lsft)
-rC (tap-hold $tap $hold j lctl)
-spc (tap-hold $tap $hold spc nop0)
-)
-
-;; fork homerow
-(defalias
-forkh (fork h left (nop0))
-forkj (fork @rC down (nop0))
-forkk (fork @rS up (nop0))
-forkl (fork @rA right (nop0))
-forka (fork @lM S-6 (nop0))
-forkf (fork @lC S-4 (nop0))
-forks (fork @lA , (nop0))
-forkd (fork @lS . (nop0))
-)
-
-;;chord (jkl)
-(defalias
-chJ (chord symbol j)
-chK (chord symbol k)
-chL (chord symbol l)
-)
-(defchords symbol $chord
-(j      ) @forkj
-(   k   ) @forkk
-(      l) @forkl
-(j  k   ) tab
-(   k  l) S-tab
-(j  k  l) ret
-)
-
-(defseq
-start-dev (s d v)
-run-dev (r d v)
-bun-dev (b r d)
-bun-build (b r b)
-bun-start (b r s)
-git-status (g s t)
-https (h t t)
-dotcom (d c)
-arrow-fuction (a r f)
-)
-
-(defchordsv2 
-(s d f) sldr 300 all-released ()
-(f  j) (one-shot $one-shot (layer-while-held symbol2)) 200 all-released ()
-(a  s) lsft 200 all-released ()
-(l  ;) rsft 200 all-released ()
-)
-
-(defvirtualkeys
-arrow-fuction (macro = spc S-9 S-0 spc = S-. spc)
-bun-dev (macro b u n spc r u n spc d e v)
-bun-build (macro b u n spc r u n spc b u i l d)
-bun-start (macro b u n spc r u n spc s t a r t)
-run-dev (macro n p m spc r u n spc d e v)
-start-dev (macro n p m spc r u n spc s t a r t S-; d e v)
-git-status (macro g i t spc s t a t u s)
-https (macro h t t p s S-; / /)
-dotcom (macro . c o m)
+tab   q     w     e     r     t     y     u     i     o     p
+caps  a     s     d     f     g     h     j     k     l     ;
+lsft  z     x     c     v     b     n     m     ,     .     /
+                        spc
 )

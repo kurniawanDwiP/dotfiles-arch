@@ -35,12 +35,13 @@ window-rule {
 
 window-rule {
     match is-active=true
-    opacity 0.95
+    opacity 0.85
+
 }
 
 window-rule {
     match is-active=false
-    opacity 0.9
+    opacity 0.75
 }
 
 window-rule {
@@ -53,6 +54,8 @@ window-rule {
   match app-id="chrome-youtube.com__-Default" 
   match app-id="chromium" title="^Picture-in-Picture$"
   match app-id="chromium" title=r#"(?i).*YouTube.*"#
+  match app-id="firefox" title=r#"^Meet.*"#
+  match app-id="firefox" title=r#"^ILT.*"#
   match app-id="vesktop"
   match app-id="discord"
   opacity 1.0
@@ -101,6 +104,12 @@ match app-id="vesktop"
 match title=r#"(?i).*Whatsapp.*"#
 open-on-workspace "social"
 default-column-width {proportion 0.5;}
+}
+
+window-rule {
+    match is-floating=true
+    min-width 100
+    min-height 100
 }
 
 layer-rule {

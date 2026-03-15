@@ -1,0 +1,25 @@
+(defvar
+tap 200
+hold 200
+chord 100 
+one-shot 2000
+tap-dance 150
+left-hand (
+q     w     e     r     t
+a     s     d     f     g
+z     x     c     v     b
+)
+
+right-hand (
+y     u     i     o     p
+h     j     k     l     ;
+n     m     ,     .     /
+)
+
+full-key (
+q     w     e     r     t     y     u     i     o     p
+a     s     d     f     g     h     j     k     l     ;
+z     x     c     v     b     n     m     ,     .     /
+)
+
+)

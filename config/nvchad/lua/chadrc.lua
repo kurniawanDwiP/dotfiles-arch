@@ -22,7 +22,7 @@
 -- }
 
 -- return M
-require "custom.statusline"
+-- require "custom.statusline"
 local options = {
 
   base46 = {
@@ -47,7 +47,7 @@ local options = {
     telescope = { style = "borderless" }, -- borderless / bordered
 
     statusline = {
-      enabled = false,
+      enabled = true,
       theme = "minimal", -- default/vscode/vscode_colored/minimal
       -- default/round/block/arrow separators work only for default statusline theme
       -- round and block will work for minimal theme only
