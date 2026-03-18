@@ -1,8 +1,8 @@
 (deflayer base
 tab   q     w     e     r     t     y     u     i     o     p
-lrld  @lm   @cS   @cD   @cF   g     h     @cJ   @cK   @cL   @rm
+lrld  @lm   @cls  @cld  @clf  g     h     @clj  @clk  @cll  @rm
 lsft  z     x     c     v     b     n     m     ,     .     /
-                        @layer-switch
+                        @clspc
 )
 
 (deflayer symbol
@@ -49,10 +49,17 @@ lsft  z     x     c     v     b     n     m     ,     .     /
 )
 
 (deflayer utility
-tab   XX    XX    XX    XX    XX    XX    C-c   C-v   A-prnt XX
-lrld  S-6   ,     .     S-4   XX    bspc  tab   S-tab prnt  XX
+tab   @work @social @media    XX    XX    XX    C-c   C-v   A-prnt XX
+lrld  S-6   ,     .     S-4   C-a   bspc  tab   S-tab prnt  XX
 lsft  XX    XX    XX    XX    XX    C-p   C-n   XX    XX    XX
                         @spc
+)
+
+(deflayer app
+tab   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+lrld  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+lsft  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+                        spc
 )
 
 (deflayer blank

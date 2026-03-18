@@ -67,9 +67,29 @@ rm (tap-hold-release-keys $tap $hold (multi ; @tap) rmet $right-hand)
 
 ;; layer-switch
 (defalias
-sym (tap-hold-release-keys $tap $hold (multi n @tap) @lSym $right-hand)
-log (tap-hold-release-keys $tap $hold (multi m @tap) @lLog $right-hand)
-sys (tap-hold-release-keys $tap $hold (multi c @tap) @lSys $left-hand)
-num (tap-hold-release-keys $tap $hold (multi v @tap) @lNum $left-hand)
+sym (tap-hold-release-keys $tap $chord-hold (multi n @tap) @lSym $right-hand)
+log (tap-hold-release-keys $tap $chord-hold (multi m @tap) @lLog $right-hand)
+sys (tap-hold-release-keys $tap $chord-hold (multi c @tap) @lSys $left-hand)
+num (tap-hold-release-keys $tap $chord-hold (multi v @tap) @lNum $left-hand)
 spc (tap-hold $tap $hold spc (layer-while-held utility) )
+)
+
+;; niri workspace
+(defalias
+media (cmd niri msg action focus-workspace media)
+social (cmd niri msg action focus-workspace social)
+work (cmd niri msg action focus-workspace work)
+lsym (multi (cmd notify-send "layer-symbol") (layer-switch symbol))
+fleft (cmd niri msg action focus-column-left)
+fright (cmd niri msg action focus-column-right)
+mleft (cmd niri msg action move-column-left)
+mright (cmd niri msg action move-column-right)
+mup (cmd niri msg action move-column-to-workspace-up)
+mdown (cmd niri msg action move-column-to-workspace-down)
+)
+
+;; app
+(defalias
+browser (cmd niri msg action spawn -- chromium)
+terminal (cmd niri msg action spawn -- kitty)
 )

@@ -1,7 +1,8 @@
 (defvar
 tap 200
 hold 200
-chord 100 
+chord-hold 50
+chord 100
 one-shot 2000
 tap-dance 150
 left-hand (

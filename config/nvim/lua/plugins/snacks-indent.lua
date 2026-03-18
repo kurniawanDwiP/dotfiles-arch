@@ -27,7 +27,7 @@ return {
             corner_bottom = "└",
             horizontal = "─",
             vertical = "│",
-            arrow = ">",
+            arrow = "─",
           },
         },
       },

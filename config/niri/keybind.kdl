@@ -201,5 +201,6 @@ binds {
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+P { power-off-monitors; } 
-    Mod+Z { spawn-sh "niri-sidebar toggle-window"; }
+    Mod+Z { spawn-sh "niri-sidebar toggle-window"; } 
+    Mod+Shift+Z { spawn-sh "niri-sidebar toggle-visibility";}
 }
