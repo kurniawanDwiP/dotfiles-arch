@@ -1,70 +1,63 @@
 (deflayer base
-tab   q     w     e     r     t     y     u     i     o     p
-lrld  @lm   @cls  @cld  @clf  g     h     @clj  @clk  @cll  @rm
+tab   q     w     e     r     t     y     u     i     o     p     [     ]
+lrld  @lm   @cls  @cld  @clf  g     h     @clj  @clk  @cll  @rm   '
 lsft  z     x     c     v     b     n     m     ,     .     /
                         @clspc
 )
 
 (deflayer symbol
-tab   grv   [     ]     S-'   -     XX    XX    XX    XX    XX
-lrld  S-[   S-9   S-0   S-]   /     XX    XX    XX    XX    XX
+tab   grv   [     ]     S-'   -     XX    XX    XX    XX    XX    XX    XX
+lrld  S-[   S-9   S-0   S-]   /     left  down  up    right XX    XX
 lsft  S-,   S-;   =     S-.   S-\   XX    XX    XX    XX    XX
                         @layer-switch
 )
 
 (deflayer logical
-tab   S-1   S-\   S-/   S-7   XX    XX    XX    XX    XX    XX
-lrld  S-6   S-5   S-2   S-4   XX    XX    XX    XX    XX    XX
+tab   S-1   S-\   S-/   S-7   XX    XX    XX    XX    XX    XX    XX    XX
+lrld  S-6   S-5   S-2   S-4   XX    left  down  up    right XX    XX
 lsft  XX    S-3   S-8   XX    XX    XX    XX    XX    XX    XX
                         @layer-switch
 )
 
 (deflayer system
 
-tab   XX    @msu  XX    XX    XX    XX    vold  volu  XX    XX
-lrld  @msl  @msd  @msr  XX    XX    @ml   @mwd  @mwu  @mr   XX
+tab   XX    @msu  XX    XX    XX    XX    vold  volu  XX    XX    XX    XX
+lrld  @msl  @msd  @msr  XX    XX    @ml   @mwd  @mwu  @mr   XX    XX
 lsft  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
                         @layer-switch
 )
 
 (deflayer numpad
-tab   XX    S-5   S-6   XX    XX    XX    7     8     9     XX
-lrld  S-=   -     S-8   /     XX    =     4     5     6     0 
+tab   XX    S-5   S-6   XX    XX    XX    7     8     9     XX    XX    XX
+lrld  S-=   -     S-8   /     XX    =     4     5     6     0     XX
 lsft  XX    XX    XX    XX    XX    XX    1     2     3     XX
                         @layer-switch
 )
 
 (deflayer colemak
-tab   q     w     f     p     b     j     l     u     y     ;
-lrld  a     r     s     t     g     m     n     e     i     o
+tab   q     w     f     p     b     j     l     u     y     ;     [     ]
+lrld  a     r     s     t     g     m     n     e     i     o     '
 lsft  x     c     d     v     z     k     h     ,     .     /
                         @spc
 )
 
 (deflayer nomods
-tab   q     w     e     r     t     y     u     i     o     p
-lrld  a     s     d     f     g     h     j     k     l     ;
+tab   q     w     e     r     t     y     u     i     o     p     [     ]
+lrld  a     s     d     f     g     h     j     k     l     ;     '
 lsft  z     x     c     v     b     n     m     ,     .     /
                         @spc
 )
 
 (deflayer utility
-tab   @work @social @media    XX    XX    XX    C-c   C-v   A-prnt XX
-lrld  S-6   ,     .     S-4   C-a   bspc  tab   S-tab prnt  XX
-lsft  XX    XX    XX    XX    XX    C-p   C-n   XX    XX    XX
+tab   @work   @social   @media    XX        XX    XX    C-c   C-v   A-prnt    XX     XX   XX
+@col  @fleft  @mleft    @mright   @fright   C-a   bspc  tab   S-tab prnt      XX     XX
+lsft  XX      XX        XX        XX        XX    C-p   C-n   XX    XX        XX
                         @spc
 )
 
-(deflayer app
-tab   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
-lrld  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
-lsft  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
-                        spc
-)
-
 (deflayer blank
-tab   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
-lrld  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+tab   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX     XX     XX
+lrld  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX     XX
 lsft  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
                         spc
 )

@@ -2,9 +2,10 @@
 process-unmapped-keys yes
 concurrent-tap-hold yes
 sequence-timeout 2000
-rapid-event-delay 20   
+rapid-event-delay 20
 delegate-to-first-layer yes
 danger-enable-cmd yes
+log-layer-changes yes
 )
 
 (include layer.kbd)
@@ -14,8 +15,8 @@ danger-enable-cmd yes
 (include switch.kbd)
 
 (defsrc
-tab   q     w     e     r     t     y     u     i     o     p
-caps  a     s     d     f     g     h     j     k     l     ;
+tab   q     w     e     r     t     y     u     i     o     p     [     ]
+caps  a     s     d     f     g     h     j     k     l     ;     '
 lsft  z     x     c     v     b     n     m     ,     .     /
                         spc
 )

@@ -27,6 +27,5 @@ clspc (chord layer spc)
 (j spc) @lSym
 (k spc) @lLog
 (l spc) @lNum
-(f spc) (layer-switch system)
-(d spc) (layer-while-held app)
+(f spc) (multi (cmd zsh -c "notify-send 'layer-mouse'") (layer-switch system))
 )
