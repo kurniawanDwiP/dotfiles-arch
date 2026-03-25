@@ -33,13 +33,13 @@ to-base (layer-switch base)
 
 (defalias
 lm (tap-hold-release-keys $tap $hold (multi a @tap) lmet $left-hand)
-la (tap-hold-release-keys $tap $hold (multi s @tap) lalt $left-hand)
-ls (tap-hold-release-keys $tap $hold (multi d @tap) (multi lsft nop3) $left-hand)
-lc (tap-hold-release-keys $tap $hold (multi f @tap) (multi lctl nop2) $left-hand)
-rc (tap-hold-release-keys $tap $hold (multi j @tap) (multi rctl nop0) $right-hand)
-rs (tap-hold-release-keys $tap $hold (multi k @tap) (multi rsft nop1) $right-hand)
-ra (tap-hold-release-keys $tap $hold (multi l @tap) ralt $right-hand)
-rm (tap-hold-release-keys $tap $hold (multi ; @tap) rmet $right-hand)
+la (tap-hold-release-keys $tap $hold (multi r @tap) lalt $left-hand)
+ls (tap-hold-release-keys $tap $hold (multi s @tap) (multi lsft nop3) $left-hand)
+lc (tap-hold-release-keys $tap $hold (multi t @tap) (multi lctl nop2) $left-hand)
+rc (tap-hold-release-keys $tap $hold (multi n @tap) (multi rctl nop0) $right-hand)
+rs (tap-hold-release-keys $tap $hold (multi e @tap) (multi rsft nop1) $right-hand)
+ra (tap-hold-release-keys $tap $hold (multi i @tap) ralt $right-hand)
+rm (tap-hold-release-keys $tap $hold (multi o @tap) rmet $right-hand)
 )
 
 ;; magic key
