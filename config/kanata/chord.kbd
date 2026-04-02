@@ -10,12 +10,12 @@ clspc (chord layer spc)
 )
 
 (defchords layer $chord
-(n) @rc
-(e) @rs
-(i) @ra
-(r) @la
-(s) @ls
-(t) @lc
+(n) @n
+(e) @e
+(i) @i
+(r) @r
+(s) @s
+(t) @t
 (spc) @spc
 (n e  ) @fleft
 (e i  ) @fright

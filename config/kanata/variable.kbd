@@ -1,26 +1,30 @@
 (defvar
-tap 200
-hold 200
+tap 175
+hold 270
 chord-hold 50
-chord 100
-one-shot 2000
+chord 50
+one-shot 3000
 tap-dance 150
+
+left-hmr(a r s t)
+right-hmr(n e i o)
+
 left-hand (
-q     w     e     r     t
-a     s     d     f     g
-z     x     c     v     b
+q     w     f     p     b
+a     r     s     t     g
+x     c     d     v     z
 )
 
 right-hand (
-y     u     i     o     p
-h     j     k     l     ;
-n     m     ,     .     /
+j     l     u     y     ;
+m     n     e     i     o
+k     h     ,     .     /
 )
 
 full-key (
-q     w     e     r     t     y     u     i     o     p
-a     s     d     f     g     h     j     k     l     ;
-z     x     c     v     b     n     m     ,     .     /
+q     w     f     p     b     j     l     u     y     ;
+a     r     s     t     g     m     n     e     i     o
+x     c     d     v     z     k     h     ,     .     /
 )
 
 )

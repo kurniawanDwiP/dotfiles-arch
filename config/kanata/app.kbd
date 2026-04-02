@@ -1,0 +1,19 @@
+(defalias
+media  (cmd zsh -c "niri msg action focus-workspace media")
+social (cmd zsh -c "niri msg action focus-workspace social")
+work   (cmd zsh -c "niri msg action focus-workspace work")
+lsym   (multi (cmd zsh -c "notify-send 'layer-symbol'") (layer-switch symbol))
+fleft  (cmd zsh -c "niri msg action focus-column-left")
+fright (cmd zsh -c "niri msg action focus-column-right")
+mleft  (cmd zsh -c "niri msg action move-column-left")
+mright (cmd zsh -c "niri msg action move-column-right")
+mup    (cmd zsh -c "niri msg action move-column-to-workspace-up")
+mdown  (cmd zsh -c "niri msg action move-column-to-workspace-down")
+notepad (cmd zsh -c "dms ipc notepad toggle")
+)
+
+;; app
+(defalias
+browser (cmd niri msg action spawn -- chromium)
+terminal (cmd niri msg action spawn -- kitty)
+)

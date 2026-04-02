@@ -1,0 +1,25 @@
+(deftemplate lhrm (tap-key hold-key)
+    (tap-hold-release-tap-keys-release
+    $tap
+    $hold
+    (multi $tap-key @tap)
+    $hold-key
+    $left-hand
+    $left-hmr
+    )
+)
+
+(deftemplate rhrm (tap-key hold-key)
+    (tap-hold-release-tap-keys-release
+    $tap
+    $hold
+    (multi $tap-key @tap)
+    $hold-key
+    $right-hand
+    $right-hmr
+    )
+)
+
+(deftemplate layer-held (layer)
+    (layer-while-held $layer)
+)
