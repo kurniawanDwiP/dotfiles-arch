@@ -10,47 +10,38 @@ ml (tap-hold-release $tap $hold mltp mlft)
 mr (tap-hold-release $tap $hold mrtp mrgt)
 )
 
-;; layer-while-held
-(defalias
-lSym (layer-while-held symbol)
-lLog (layer-while-held logical)
-lSys (layer-while-held system)
-lNum (layer-while-held numpad)
-)
-
-;; fake-keys
 (defvirtualkeys
 to-base (layer-switch base)
 )
 
-;; move-to-nomods
-  (defalias 
-   tap (multi
-   (layer-switch nomods)
-   (on-idle 20 tap-vkey to-base)
-     )
-  )
-
 (defalias
-lm (tap-hold-release-keys $tap $hold (multi a @tap) lmet $left-hand)
-la (tap-hold-release-keys $tap $hold (multi r @tap) lalt $left-hand)
-ls (tap-hold-release-keys $tap $hold (multi s @tap) (multi lsft nop3) $left-hand)
-lc (tap-hold-release-keys $tap $hold (multi t @tap) (multi lctl nop2) $left-hand)
-rc (tap-hold-release-keys $tap $hold (multi n @tap) (multi rctl nop0) $right-hand)
-rs (tap-hold-release-keys $tap $hold (multi e @tap) (multi rsft nop1) $right-hand)
-ra (tap-hold-release-keys $tap $hold (multi i @tap) ralt $right-hand)
-rm (tap-hold-release-keys $tap $hold (multi o @tap) rmet $right-hand)
+tap (multi
+   (layer-switch nomods)
+   (on-idle 250 tap-vkey to-base)
+   )
+a (t! lhrm a lmet)
+r (t! lhrm r lalt)
+s (t! lhrm s lsft)
+t (t! lhrm t lctl)
+
+n (t! rhrm n rctl)
+e (t! rhrm e rsft)
+i (t! rhrm i ralt)
+o (t! rhrm o rmet)
+)
+
+
+;; layer-while-held
+(defalias
+lSym (t! layer-held symbol)
+lLog (t! layer-held logical)
+lSys (t! layer-held system)
+lNum (t! layer-held numpad)
+spc (tap-hold $tap $hold spc (t! layer-held utility) )
 )
 
 ;; magic key
 (defalias
-  magic (switch
-      ((key-history c 2)) (macro n s t spc) break
-      ((key-history a 2)) (macro a i t spc) break
-      ((key-history f 3)) (macro c t i o n spc) break
-      ((or (and (key-history e 2) (key-history x 1) ) (and (key-history i 2) (key-history m 1) ))) (macro p o r t spc) break
-      ((and (key-history i 3) (key-history n 2) (key-history t 1))) (macro e r f a c e spc) break
-      )
   layer-switch (switch 
   ((and nop0)) (layer-switch symbol) break
   ((and nop1)) (layer-switch logical) break
@@ -65,31 +56,4 @@ rm (tap-hold-release-keys $tap $hold (multi o @tap) rmet $right-hand)
   )
 )
 
-;; layer-switch
-(defalias
-sym (tap-hold-release-keys $tap $chord-hold (multi n @tap) @lSym $right-hand)
-log (tap-hold-release-keys $tap $chord-hold (multi m @tap) @lLog $right-hand)
-sys (tap-hold-release-keys $tap $chord-hold (multi c @tap) @lSys $left-hand)
-num (tap-hold-release-keys $tap $chord-hold (multi v @tap) @lNum $left-hand)
-spc (tap-hold $tap $hold spc (layer-while-held utility) )
-)
 
-;; niri workspace
-(defalias
-media  (cmd zsh -c "niri msg action focus-workspace media")
-  social (cmd zsh -c "niri msg action focus-workspace social")
-  work   (cmd zsh -c "niri msg action focus-workspace work")
-  lsym   (multi (cmd zsh -c "notify-send 'layer-symbol'") (layer-switch symbol))
-  fleft  (cmd zsh -c "niri msg action focus-column-left")
-  fright (cmd zsh -c "niri msg action focus-column-right")
-  mleft  (cmd zsh -c "niri msg action move-column-left")
-  mright (cmd zsh -c "niri msg action move-column-right")
-  mup    (cmd zsh -c "niri msg action move-column-to-workspace-up")
-  mdown  (cmd zsh -c "niri msg action move-column-to-workspace-down")
-)
-
-;; app
-(defalias
-browser (cmd niri msg action spawn -- chromium)
-terminal (cmd niri msg action spawn -- kitty)
-)

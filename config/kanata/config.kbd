@@ -9,8 +9,10 @@ log-layer-changes yes
 )
 
 (include layer.kbd)
+(include template.kbd)
 (include variable.kbd)
 (include alias.kbd)
+(include app.kbd)
 (include chord.kbd)
 (include switch.kbd)
 

@@ -1,6 +1,6 @@
 (deflayer base
 tab   q     w     f     p     b     j     l     u     y     ;     [     ]
-lrld  @lm   @cls  @cld  @clf  g     m     @clj  @clk  @cll  @rm   o
+lrld  @a    @cls  @cld  @clf  g     m     @clj  @clk  @cll  @o   '
 lsft  x     c     d     v     z     k     h     ,     .     /
                         @clspc
 )
@@ -49,9 +49,9 @@ lsft  x     c     d     v     z     k     h     ,     .     /
 )
 
 (deflayer utility
-tab   @work   @social   @media    XX        XX    XX    C-c   C-v   A-prnt    XX     XX   XX
-@col  @fleft  @mleft    @mright   @fright   C-a   bspc  tab   S-tab prnt      XX     XX
-lsft  XX      XX        XX        XX        XX    C-p   C-n   XX    XX        XX
+tab   @work   @social   @media    XX      XX    XX    XX    XX    XX    XX     XX   XX
+@col  @fleft  @mleft    @mright   @fright C-a   left  down  up    right XX     XX
+lsft  XX      XX        XX        XX      XX    @notepad    C-n   XX    XX     XX
                         @spc
 )
 
