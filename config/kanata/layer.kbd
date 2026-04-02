@@ -1,7 +1,7 @@
 (deflayer base
-tab   q     w     e     r     t     y     u     i     o     p     [     ]
-lrld  @lm   @cls  @cld  @clf  g     h     @clj  @clk  @cll  @rm   '
-lsft  z     x     c     v     b     n     m     ,     .     /
+tab   q     w     f     p     b     j     l     u     y     ;     [     ]
+lrld  @lm   @cls  @cld  @clf  g     m     @clj  @clk  @cll  @rm   o
+lsft  x     c     d     v     z     k     h     ,     .     /
                         @clspc
 )
 
@@ -42,9 +42,9 @@ lsft  x     c     d     v     z     k     h     ,     .     /
 )
 
 (deflayer nomods
-tab   q     w     e     r     t     y     u     i     o     p     [     ]
-lrld  a     s     d     f     g     h     j     k     l     ;     '
-lsft  z     x     c     v     b     n     m     ,     .     /
+tab   q     w     f     p     b     j     l     u     y     ;     [     ]
+lrld  a     r     s     t     g     m     n     e     i     o     '
+lsft  x     c     d     v     z     k     h     ,     .     /
                         @spc
 )
 

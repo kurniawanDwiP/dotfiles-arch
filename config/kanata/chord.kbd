@@ -1,31 +1,31 @@
 ;;new chord
 (defalias
-clj (chord layer j)
-clk (chord layer k)
-cll (chord layer l)
-cls (chord layer s)
-cld (chord layer d)
-clf (chord layer f)
+clj (chord layer n)
+clk (chord layer e)
+cll (chord layer i)
+cls (chord layer r)
+cld (chord layer s)
+clf (chord layer t)
 clspc (chord layer spc)
 )
 
 (defchords layer $chord
-(j) @rc
-(k) @rs
-(l) @ra
-(s) @la
-(d) @ls
-(f) @lc
+(n) @rc
+(e) @rs
+(i) @ra
+(r) @la
+(s) @ls
+(t) @lc
 (spc) @spc
-(j k  ) @fleft
-(k l  ) @fright
-(s d  ) @mleft
-(  d f) @mright
-(s   f) @mup
-(j   l) @mdown
-(j k l) ret
-(j spc) @lSym
-(k spc) @lLog
-(l spc) @lNum
-(f spc) (multi (cmd zsh -c "notify-send 'layer-mouse'") (layer-switch system))
+(n e  ) @fleft
+(e i  ) @fright
+(r s  ) @mleft
+(  s t) @mright
+(r   t) @mup
+(n   i) @mdown
+(n e i) ret
+(n spc) @lSym
+(e spc) @lLog
+(i spc) @lNum
+(t spc) (multi (cmd zsh -c "notify-send 'layer-mouse'") (layer-switch system))
 )
