@@ -1,7 +1,0 @@
-(defalias
-lb (layer-switch base)
-lsy (layer-switch symbol)
-ll (layer-switch logical)
-ln (layer-switch numpad)
-lsys (layer-switch system)
-)
