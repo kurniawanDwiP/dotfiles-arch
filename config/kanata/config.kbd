@@ -8,11 +8,17 @@ danger-enable-cmd yes
 log-layer-changes yes
 )
 
-(include layer.kbd)
-(include template.kbd)
-(include variable.kbd)
-(include utility.kbd)
-(include chord.kbd)
+(include layer/base.kbd)
+(include layer/symbol.kbd)
+(include layer/logical.kbd)
+(include layer/numapad.kbd)
+(include layer/nav.kbd)
+(include layer/mouse.kbd)
+(include layer/nomods.kbd)
+(include components/template.kbd)
+(include components/variable.kbd)
+(include components/utility.kbd)
+(include components/chord.kbd)
 
 (defsrc
 q   w   e   r   t   y   u   i   o   p   [  ]

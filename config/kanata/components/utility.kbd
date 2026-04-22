@@ -1,0 +1,11 @@
+(defalias
+wm (cmd zsh -c "niri msg action focus-workspace media")
+ws (cmd zsh -c "niri msg action focus-workspace social")
+ww (cmd zsh -c "niri msg action focus-workspace work")
+fl (cmd zsh -c "niri msg action set-column-width 33.33333%; niri msg action focus-column-left; niri msg action set-column-width 66.66667%;")
+fr (cmd zsh -c "niri msg action set-column-width 33.33333%; niri msg action focus-column-right; niri msg action set-column-width 66.66667%;")
+ml (cmd zsh -c "niri msg action move-column-left")
+mr (cmd zsh -c "niri msg action move-column-right")
+mu (cmd zsh -c "niri msg action move-column-to-workspace-up")
+md (cmd zsh -c "niri msg action move-column-to-workspace-down")
+)

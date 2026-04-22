@@ -7,12 +7,13 @@ layout {
         proportion 0.5
         proportion 0.66667
     }
-    default-column-width { proportion 0.33333; }
+    default-column-width { proportion 0.5; }
     border {
-        off
-        width 4
-        active-color   "#707070"      // Neutral gray
-        inactive-color "#d0d0d0"      // Light gray
+        // off
+        on
+        width 2
+        active-color   "#FF85BB"      // Neutral gray
+        inactive-color "#FFCEE3"      // Light gray
         urgent-color   "#cc4444"      // Softer red
     }
     focus-ring {
@@ -28,7 +29,9 @@ layout {
         color "#0007"
     }
     struts {
-    } 
+      left -4
+      right -4
+    }
     tab-indicator {
     // place-within-column
     gap -10

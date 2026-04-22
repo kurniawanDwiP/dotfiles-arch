@@ -1,0 +1,7 @@
+(deflayer nav
+@ww   @ws   @wm   XX    XX    C-h   C-j   C-k   C-l   XX    XX    XX
+@mo   @ls   @lo   @nu   XX    left  down  up    right XX    XX
+XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+@nav  spc
+)
+(defalias nav (layer-switch nav))

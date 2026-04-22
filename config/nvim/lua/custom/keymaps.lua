@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-map("i", "jj", "<ESC>")
+map("i", "hh", "<ESC>")
 map("i", "jk", "<C-o>")
 map({ "n", "t" }, "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "tmux down" })
 map({ "n", "t" }, "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "tmux up" })

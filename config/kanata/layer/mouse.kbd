@@ -1,0 +1,18 @@
+(defalias
+msu (movemouse-up 3 2)
+msl (movemouse-left 3 2)
+msd (movemouse-down 3 2)
+msr (movemouse-right 3 2)
+mwu (mwheel-up 1 4)
+mwd (mwheel-down 1 4)
+mol (tap-hold-release $tap $hold mltp mlft)
+mor (tap-hold-release $tap $hold mrtp mrgt)
+mo  (layer-switch mouse)
+)
+
+(deflayer mouse
+XX    @msu  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+@msl  @msd  @msr  XX    XX    @mol  @mwd  @mwu  @mor  XX    XX
+XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+lrld  spc
+)

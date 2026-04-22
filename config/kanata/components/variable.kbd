@@ -1,13 +1,13 @@
 (defvar
-tap 190
+tap 150
 hold 175
 chord-hold 50
-chord 60
+chord 50
 one-shot 3000
 tap-dance 150
 
-left-hmr(a r s t)
-right-hmr(n e i o)
+left-hmr(n r t s)
+right-hmr(h a e i)
 
 left-hand (
 b     l     d     c     v

@@ -34,21 +34,23 @@ window-rule {
 }
 
 window-rule {
-    match is-active=true
-    opacity 0.85
+    // match is-active=true
+    opacity 0.75
     background-effect {
         blur true
+        xray false
     }
 
 }
 
-window-rule {
-    match is-active=false
-    opacity 0.7
-    background-effect {
-        blur true
-    }
-}
+// window-rule {
+//     match is-active=false
+//     opacity 0.5
+//     background-effect {
+//         blur true
+//         xray false
+//     }
+// }
 
 window-rule {
     geometry-corner-radius 4

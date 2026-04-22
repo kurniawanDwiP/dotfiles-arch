@@ -8,4 +8,5 @@ return {
   require("custom.plugins.precognition"),
   require("custom.plugins.cord"),
   require("custom.plugins.user"),
+  require("custom.plugins.harpoon"),
 }

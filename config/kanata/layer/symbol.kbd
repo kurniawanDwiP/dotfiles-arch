@@ -1,0 +1,7 @@
+(deflayer symbol
+grv   [     ]     S-'   -     XX    S-6   S-5   S-4   XX    XX    XX
+S-[   S-9   S-0   S-]   /     left  down  up    right XX    XX
+S-,   S-;   =     S-.   S-\   XX    XX    XX    XX    XX
+@nav  spc
+)
+(defalias ls (layer-switch symbol))

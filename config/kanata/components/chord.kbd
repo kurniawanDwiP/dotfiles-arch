@@ -5,6 +5,8 @@ e (chord layer e)
 r (chord layer r)
 t (chord layer t)
 s (chord layer s)
+u (chord layer u)
+o (chord layer o)
 spc (chord layer spc)
 )
 
@@ -15,6 +17,8 @@ spc (chord layer spc)
 (r) @modr
 (t) @modt
 (s) @mods
+(o) @modo
+(u) @modu
 (spc) @modspc
 (h a  ) @fl
 (  a e) @fr
@@ -22,6 +26,7 @@ spc (chord layer spc)
 (  t s) @mr
 (r   s) @mu
 (h   e) @md
+(o u  ) bspc
 (h a e) ret
 (h spc) (layer-while-held symbol)
 (a spc) (layer-while-held logical)

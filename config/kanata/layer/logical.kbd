@@ -1,0 +1,7 @@
+(deflayer logical
+S-1   S-\   S-/   S-7   XX    XX    XX    XX    XX    XX    XX    XX
+S-6   S-5   S-2   S-4   XX    left  down  up    right XX    XX
+XX    S-3   S-8   XX    XX    XX    XX    XX    XX    XX
+@nav  spc
+)
+(defalias lo (layer-switch logical))
