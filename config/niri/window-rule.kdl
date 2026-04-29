@@ -35,10 +35,10 @@ window-rule {
 
 window-rule {
     // match is-active=true
-    opacity 0.75
+    opacity 0.8
     background-effect {
         blur true
-        xray false
+        xray true
     }
 
 }
@@ -53,7 +53,7 @@ window-rule {
 // }
 
 window-rule {
-    geometry-corner-radius 4
+    geometry-corner-radius 12
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -115,12 +115,6 @@ open-on-workspace "social"
 default-column-width {proportion 0.5;}
 }
 
-window-rule {
-    match is-floating=true
-    min-width 100
-    min-height 100
-}
-
 layer-rule {
     match namespace="^wallpaper$"
     // place-within-backdrop true
@@ -132,5 +126,4 @@ layer-rule {
 }
 layer-rule {
     match namespace="^quickshell$"
-    place-within-backdrop true
 }

@@ -1,2 +1,0 @@
-
- MODE  FILE  GIT             DIAG  FORMAT  LSP  CWD 

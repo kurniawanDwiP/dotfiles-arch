@@ -51,8 +51,8 @@ modspc (tap-hold $tap $hold spc (multi (on-press tap-vkey to-nav) (on-release ta
 
 (defalias 
 b (t! nomod b)
-l (t! nomod l)
-d (t! nomod d)
+modl (t! nomod l)
+modd (t! nomod d)
 c (t! nomod c)
 v (t! nomod v)
 j (t! nomod j)

@@ -9,4 +9,7 @@ return {
   require("custom.plugins.cord"),
   require("custom.plugins.user"),
   require("custom.plugins.harpoon"),
+  require("custom.plugins.oil"),
+  require("custom.plugins.mini-files"),
+  require("custom.plugins.disable.disable"),
 }
