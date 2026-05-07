@@ -1,10 +1,11 @@
 local map = vim.keymap.set
 local minifiles = require("mini.files")
 local minifiles_toggle = function()
-  if not minifiles.close() then
-    minifiles.open(vim.api.nvim_buf_get_name(0))
-  end
+	if not minifiles.close() then
+		minifiles.open(vim.api.nvim_buf_get_name(0))
+	end
 end
+local flash = require("flash")
 
 map("i", "hh", "<ESC>")
 map("i", "jk", "<C-o>")
@@ -13,8 +14,21 @@ map({ "n", "t" }, "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "tmux up" })
 map({ "n", "t" }, "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "tmux left" })
 map({ "n", "t" }, "<c-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "tmux right" })
 map({ "n", "i" }, "<c-e>", function()
-  minifiles_toggle()
+	minifiles_toggle()
 end)
 -- map({ "n", "i" }, "<c-f>", "<cmd>Telescope find_files<cr>", { desc = "Find Files (cwd)" })
 map({ "n", "x", "o" }, "gh", "^")
 map({ "n", "x", "o" }, "gl", "$")
+map({ "n", "i" }, "<c-s>", "<cmd>w<CR>")
+map({ "n", "x", "o" }, "s", function()
+	flash.jump()
+end)
+map({ "n", "x", "o" }, "S", function()
+	flash.treesitter()
+end)
+map({ "o" }, "r", function()
+	flash.remote()
+end)
+map({ "o" }, "R", function()
+	flash.tresitter_search()
+end)

@@ -2,7 +2,7 @@
 process-unmapped-keys yes
 concurrent-tap-hold yes
 sequence-timeout 2000
-rapid-event-delay 20
+rapid-event-delay 5
 delegate-to-first-layer yes
 danger-enable-cmd yes
 log-layer-changes yes
@@ -21,6 +21,7 @@ log-layer-changes yes
 (include components/chord.kbd)
 
 (defsrc
+1   2   3   4   5   6   7   8   9   0   -  =
 q   w   e   r   t   y   u   i   o   p   [  ]
 a   s   d   f   g   h   j   k   l   ;   '
 z   x   c   v   b   n   m   ,   .   /

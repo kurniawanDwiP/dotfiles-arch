@@ -12,4 +12,6 @@ return {
   require("custom.plugins.oil"),
   require("custom.plugins.mini-files"),
   require("custom.plugins.disable.disable"),
+  require("custom.plugins.base46"),
+  require("custom.plugins.blink-cmp"),
 }

@@ -2,14 +2,15 @@ return {
   {
     "nvim-mini/mini.files",
     version = false,
+    enabled = true,
     config = function()
       require("mini.files").setup({
         mappings = {
           close = "q",
-          go_in = "<CR>",
-          go_in_plus = "L",
-          go_out = "<BS>",
-          go_out_plus = "H",
+          go_in = "",
+          go_in_plus = "<CR>",
+          go_out = "",
+          go_out_plus = "<BS>",
           mark_goto = "'",
           mark_set = "m",
           reset = "<esc>",
@@ -21,9 +22,12 @@ return {
         },
         windows = {
           preview = true,
-          width_focus = 20,
-          width_nofocus = 20,
+          width_focus = 30,
+          width_nofocus = 15,
           width_preview = 40,
+        },
+        options = {
+          permanent_delete = false,
         },
       })
     end,

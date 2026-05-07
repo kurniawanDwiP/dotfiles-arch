@@ -18,6 +18,6 @@ return {
   },
   { "rose-pine/neovim", name = "rose-pine" },
   { "LazyVim/LazyVim", opts = {
-    colorscheme = "kanso-mist",
+    colorscheme = "base46-kanagawa",
   } },
 }

@@ -1,7 +1,25 @@
 (deflayer symbol
-grv   [     ]     S-'   -     S-=   S-1   S-\   S-/   S-7    XX    XX
-S-[   S-9   S-0   S-]   /     S--   S-6   S-5   S-2   S-4    XX
-S-,   S-;   =     S-.   S-\   S-grv XX    S-3   S-8   XX 
+1     2     3     4     5     6     7     8     9     0     -     =
+grv   [     ]     S-'   -     S-=   S-1   @|    @?    S-7    XX    XX
+S-[   S-9   S-0   S-]   /     S--   @^    @%    @@    S-4    XX
+S-,   S-;   =     S-.   S-\   S-grv XX    S-3   S-8   XX
 @nav  spc
 )
-(defalias ls (layer-switch symbol))
+(defalias
+ls (layer-switch symbol)
+| (chord symbol |)
+? (chord symbol ?)
+^ (chord symbol ^)
+% (chord symbol %)
+@ (chord symbol @)
+)
+
+(defchords symbol $chord
+(|) S-\
+(?) S-/
+(^) S-6
+(%) S-5
+(@) S-2
+(| ?) bspc
+(^ % @) ret
+)
