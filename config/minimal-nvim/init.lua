@@ -28,4 +28,4 @@ require("config.autocmds")
 
 vim.pack.add({ "https://github.com/AvengeMedia/base46" })
 require("base46").setup()
-vim.cmd.colorscheme("base46-kanagawa")
+vim.cmd.colorscheme("base46-github_light")
