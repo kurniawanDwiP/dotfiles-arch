@@ -22,6 +22,7 @@ require("config.lualine")
 require("config.whichkey")
 require("config.flash")
 require("config.noice")
+require("config.octo")
 
 require("config.keymaps")
 require("config.autocmds")

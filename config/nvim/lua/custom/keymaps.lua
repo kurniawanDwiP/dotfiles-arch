@@ -5,6 +5,10 @@ local minifiles_toggle = function()
     minifiles.open(vim.api.nvim_buf_get_name(0))
   end
 end
+local wk = require("which-key")
+wk.add({
+  { "<leader>h", group = "harpoon" },
+})
 
 map("i", "hh", "<ESC>")
 map("i", "jk", "<C-o>")

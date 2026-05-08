@@ -14,4 +14,5 @@ wk.add({
 	{ "<leader>h", group = "[H]arpoon" },
 	{ "<leader>f", group = "[F]ind [Telescope]" },
 	{ "<leader>c", group = "[C]ode [Trouble]" },
+	{ "<leader>g", group = "[G]it [Octo]" },
 })

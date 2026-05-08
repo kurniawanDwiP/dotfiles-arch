@@ -14,4 +14,5 @@ return {
   require("custom.plugins.disable.disable"),
   require("custom.plugins.base46"),
   require("custom.plugins.blink-cmp"),
+  require("custom.plugins.octo"),
 }
