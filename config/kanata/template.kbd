@@ -1,0 +1,73 @@
+(deftemplate flowtap (flow tap)
+  (switch 
+    ((key-timing $streak-count less-than $streak-time)) $flow break
+    () $tap break
+  )
+)
+
+(deftemplate flowchord (flow tap)
+  (switch 
+    ((and
+      (not (key-history bspc 1))
+      (not (key-history tab 1))
+      (key-timing $streak-count less-than $streak-time)
+    )) $flow break
+    () $tap break
+  )
+)
+
+(deftemplate charmod (char mod)
+  (t! flowtap
+    $char
+    (tap-hold-release $tap-timeout $hold-timeout $char $mod )
+  )
+)
+
+(deftemplate chord-3key (
+name 
+alias1 alias2 alias3 
+key1 key2 key3 
+function1 function2 function3 function4 function5 function6 function7 )
+
+(defalias
+$alias1 (t! flowchord $key1 (chord $name $key1))
+$alias2 (t! flowchord $key2 (chord $name $key2))
+$alias3 (t! flowchord $key3 (chord $name $key3))
+)
+
+(defchords $name $chord-timeout
+($key1) $function1
+($key2) $function2
+($key3) $function3
+($key1 $key2) $function4
+($key2 $key3) $function5
+($key1 $key3) $function6
+($key1 $key2 $key3) $function7
+)) 
+
+(deftemplate chord-2key (
+name 
+alias1 alias2 
+key1 key2 
+function1 function2 function3)
+
+(defalias 
+$alias1 (t! flowchord $key1 (chord $name $key1))
+$alias2 (t! flowchord $key2 (chord $name $key2))
+)
+
+(defchords $name $chord-timeout
+($key1) $function1
+($key2) $function2
+($key1 $key2) $function3
+))
+
+(deftemplate tmux
+(name key)
+(defalias $name (macro C-a $key))
+)
+
+(defvirtualkeys
+  to-base (layer-switch base)
+  to-nav (layer-switch nav)
+)

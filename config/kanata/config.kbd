@@ -1,30 +1,50 @@
 (defcfg
-process-unmapped-keys yes
-concurrent-tap-hold yes
-sequence-timeout 2000
-rapid-event-delay 5
-delegate-to-first-layer yes
-danger-enable-cmd yes
-log-layer-changes yes
+  process-unmapped-keys yes
+  concurrent-tap-hold yes
+  danger-enable-cmd yes
 )
-
-(include layer/base.kbd)
-(include layer/symbol.kbd)
-(include layer/logical.kbd)
-(include layer/numapad.kbd)
-(include layer/nav.kbd)
-(include layer/mouse.kbd)
-(include layer/nomods.kbd)
-(include components/template.kbd)
-(include components/variable.kbd)
-(include components/utility.kbd)
-(include components/chord.kbd)
 
 (defsrc
-1   2   3   4   5   6   7   8   9   0   -  =
-q   w   e   r   t   y   u   i   o   p   [  ]
-a   s   d   f   g   h   j   k   l   ;   '
-z   x   c   v   b   n   m   ,   .   /
-caps
-spc
+  esc       1    2    3    4    5    6    7    8    9    0
+  tab       q    w    e    r    t    y    u    i    o    p
+  caps      a    s    d    f    g    h    j    k    l    ;    '
+  lsft      z    x    c    v    b    n    m    ,    .    /
+  lctl lmet lalt           spc                 ralt rmet rctl
 )
+
+(defvar
+  streak-count 3
+  streak-time 500
+  tap-timeout 170
+  hold-timeout 155
+  chord-timeout 50    
+)
+
+(include template.kbd)
+(include layer.kbd)
+
+
+(defalias
+  n (t! charmod n lmet)
+  r (t! charmod r lalt)
+  t (t! charmod t lsft)
+  s (t! charmod s lctl)
+
+  h (t! charmod h rctl)
+  a (t! charmod a rsft)
+  e (t! charmod e ralt)
+  i (t! charmod i rmet)
+
+  spc (t! charmod spc (multi (on-press tap-vkey to-nav) (on-release tap-vkey to-base))) 
+  sym (layer-switch symbol)
+  num (layer-switch numpad)
+)
+
+(t! chord-3key right-hand chh cha che h a e @h @a @e tab S-tab XX ret )
+(t! chord-2key right-bspc cho chu o u o u bspc)
+(t! chord-2key left-esc chl chd l d l d esc)
+(t! tmux 1 Digit1)
+(t! tmux 2 Digit2)
+(t! tmux 3 Digit3)
+(t! tmux 4 Digit4)
+(t! tmux 5 Digit5)

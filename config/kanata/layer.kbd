@@ -1,0 +1,39 @@
+(deflayer base
+  esc       1    2    3    4    5    6    7    8    9    0
+  tab       b    @chl @chd c    v    j    f    @cho @chu ,
+  lrld      @n   @r   @t   @s   g    y    @chh @cha @che @i  /
+  lsft      x    q    m    w    z    k    p    '    ;    .
+  lctl lmet lalt           @spc                ralt rmet rctl
+)
+
+(deflayer nav
+  esc       @1   @2   @3   @4   @5   XX   XX   XX   XX   XX
+  tab       XX   XX   XX   XX   XX   C-h  C-j  C-k  C-l  XX
+  lrld      XX   @sym @num XX   XX   ◀    ▼    ▲    ▶    XX   XX
+  lsft      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  lctl lmet lalt           spc                 ralt rmet rctl
+)
+
+(deflayer symbol
+  esc       XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  tab       grv  [    ]    S-'  -    S-=  S-1  S-\  S-/  S-7
+  lrld      S-[  S-9  S-0  S-]  /    S--  S-6  S-5  S-2  S-4  XX
+  lsft      S-,  S-;  =    S-.  S-\  S-˜  XX   S-3  S-8  XX
+  lctl lmet lalt           spc                 ralt rmet rctl
+)
+
+(deflayer numpad
+  esc       XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  tab       XX   XX   XX   XX   XX   XX   7    8    9    XX
+  lrld      S-=  -    S-8  /    =    XX   4    5    6    0    XX
+  lsft      XX   XX   XX   XX   XX   XX   1    2    3    XX
+  lctl lmet lalt           spc                 ralt rmet rctl
+)
+
+(deflayer blank
+  esc       XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  tab       XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  lrld      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  lsft      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  lctl lmet lalt           spc                 ralt rmet rctl
+)
