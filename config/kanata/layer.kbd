@@ -7,10 +7,10 @@
 )
 
 (deflayer nav
-  esc       @1   @2   @3   @4   @5   XX   XX   XX   XX   XX
-  tab       XX   XX   XX   XX   XX   C-h  C-j  C-k  C-l  XX
-  lrld      XX   @sym @num XX   XX   ◀    ▼    ▲    ▶    XX   XX
-  lsft      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  esc       @1    @2   @3   @4   @5   XX   XX   XX   XX   XX
+  tab       C-c   C-v  C-S-c C-S-v   XX   C-h  C-j  C-k  C-l  XX
+  lrld      @niri @sym @num C-i  XX   ◀    ▼    ▲    ▶    XX   XX
+  lsft      XX    XX   XX   XX   XX   XX   XX   XX   XX   XX
   lctl lmet lalt           spc                 ralt rmet rctl
 )
 
@@ -27,6 +27,14 @@
   tab       XX   XX   XX   XX   XX   XX   7    8    9    XX
   lrld      S-=  -    S-8  /    =    XX   4    5    6    0    XX
   lsft      XX   XX   XX   XX   XX   XX   1    2    3    XX
+  lctl lmet lalt           spc                 ralt rmet rctl
+)
+
+(deflayer niri
+  esc       @ww  @ws  @wm  XX   XX   XX   XX   XX   XX   XX
+  tab       @flA @md  @mu  @frA XX   XX   XX   XX   XX   XX
+  lrld      @ml  @fl  @fr  @mr  XX   XX   XX   XX   XX   XX   XX
+  lsft      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
   lctl lmet lalt           spc                 ralt rmet rctl
 )
 

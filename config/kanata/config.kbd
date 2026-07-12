@@ -22,7 +22,7 @@
 
 (include template.kbd)
 (include layer.kbd)
-
+(include niri-nav.kbd)
 
 (defalias
   n (t! charmod n lmet)
@@ -38,6 +38,7 @@
   spc (t! charmod spc (multi (on-press tap-vkey to-nav) (on-release tap-vkey to-base))) 
   sym (layer-switch symbol)
   num (layer-switch numpad)
+  niri (layer-switch niri)
 )
 
 (t! chord-3key right-hand chh cha che h a e @h @a @e tab S-tab XX ret )

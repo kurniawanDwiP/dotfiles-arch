@@ -1,0 +1,11 @@
+workspace "work"
+workspace "social"
+workspace "media"
+
+include "window-rule.kdl"
+include "keybind.kdl"
+include "general.kdl"
+include "layout.kdl"
+include "animation.kdl"
+
+include "dms/windowrules.kdl"
